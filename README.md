@@ -1,6 +1,3 @@
-﻿
-Markdown
-
 <h1 align="center">🛡️ Google Cybersecurity Professional Certificate</h1>
 
 <p align="center">
