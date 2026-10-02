@@ -1,5 +1,4 @@
-
-# 📂 Module 1: Foundations of Cybersecurity
+# 📂 Course 1: Foundations of Cybersecurity
 
 ## 📌 Overview
 
@@ -18,7 +17,6 @@ This module established the core theoretical and conceptual foundations of cyber
 - Analyzed real-world security scenarios and case studies.
 - Documented security concepts and framework applications.
 - Created and refined the professional statement and career portfolio foundation.
-
 
 # 📚Foundations of Cybersecurity - Study Notes & Glossary
 
