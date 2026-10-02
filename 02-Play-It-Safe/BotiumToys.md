@@ -1,4 +1,3 @@
-
 # Security Audit & Compliance Assessment: Botium Toys
 
 ## Executive Summary
@@ -9,7 +8,7 @@ Based on the scope and risk assessment report, Botium Toys currently holds a hig
 
 ---
 
-## 1. Controls Assessment Checklist & Justifications
+## *Controls Assessment Checklist & Justifications*
 
 The following table evaluates whether Botium Toys currently has the necessary security controls in place, providing technical justifications based directly on the company's internal risk assessment report:
 
@@ -32,7 +31,7 @@ The following table evaluates whether Botium Toys currently has the necessary se
 
 ---
 
-## 2. Compliance Checklist & Regulatory Justifications
+## *Compliance Checklist & Regulatory Justifications*
 
 This section evaluates adherence to major regulatory standards and data protection best practices, justified by findings from the risk report:
 
@@ -65,7 +64,7 @@ This section evaluates adherence to major regulatory standards and data protecti
 
 ---
 
-## 3. Strategic Recommendations for IT Management
+## *Strategic Recommendations for IT Management*
 
 To successfully reduce the current risk score from **8/10** to an acceptable threshold, improve the overall security posture, and satisfy legal compliance mandates, management should execute the following recommendations:
 
