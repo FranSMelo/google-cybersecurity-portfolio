@@ -1,51 +1,68 @@
-# 🛡️ Course 2: Play It Safe — Manage Security Risks
+# 📂 Course 2: Play It Safe: Manage Security Risks
 
-## 📌 Course Overview
+## 📌 Overview
 
-**Play It Safe: Manage Security Risks** introduces the processes and tools cybersecurity professionals use to understand organizational risk and protect business operations. The course connects security frameworks and policies with practical controls, audits, and risk treatment decisions.
+This module explored how cybersecurity professionals manage risk using security frameworks, controls, policies, and common security tools. It connected organizational goals with practical safeguards designed to protect people, processes, systems, and data.
 
-This section of my portfolio brings together my course notes and a practical security audit assessment. It shows how security concepts can be applied to a business scenario: identify weaknesses, assess their impact, consider compliance needs, and recommend actions to reduce risk.
+## 🔑 Key Topics Covered
 
-## 🎯 What I Learned
+- **Security Frameworks:** Understanding how frameworks such as the NIST Cybersecurity Framework (CSF) and the NIST Risk Management Framework (RMF) help organizations manage cybersecurity risk.
+- **Security Controls:** Learning how administrative, technical, and physical controls reduce risk and support the confidentiality, integrity, and availability of information.
+- **Control Categories:** Distinguishing preventive, detective, corrective, deterrent, compensating, and directive controls.
+- **Risk Management:** Identifying assets, threats, and vulnerabilities; assessing likelihood and impact; and selecting appropriate risk treatments.
+- **Policies and Procedures:** Understanding how security policies, standards, procedures, and guidelines establish consistent security practices.
+- **Security Audits:** Exploring how audits assess whether security controls are implemented effectively and aligned with organizational requirements.
+- **Security Tools:** Reviewing common tools used by security teams to monitor systems, identify vulnerabilities, investigate activity, and protect assets.
 
-- **Manage cybersecurity risk:** Identify assets, threats, and vulnerabilities, then consider the likelihood and impact of potential incidents.
-- **Use security frameworks:** Understand how frameworks such as the NIST Cybersecurity Framework (CSF) and Risk Management Framework (RMF) support structured security programs.
-- **Select security controls:** Distinguish administrative, technical, and physical safeguards, as well as preventive, detective, corrective, deterrent, compensating, and directive controls.
-- **Apply risk treatment:** Compare risk mitigation, acceptance, avoidance, and transfer when deciding how to address a risk.
-- **Understand security documentation:** Recognize how policies, standards, procedures, and guidelines help establish consistent security practices.
-- **Assess security and compliance:** Review controls against organizational needs and requirements such as PCI DSS, GDPR, and SOC 1/SOC 2.
-- **Recognize common security tools:** Understand the role of firewalls, IDS/IPS, SIEM platforms, vulnerability scanners, EDR, and encryption.
+## 🛠️ Practical Exercises & Deliverables
 
-## 🧪 Practical Exercise: Botium Toys Security Audit
+- Analyzed organizational scenarios to identify assets, threats, vulnerabilities, and associated risks.
+- Mapped security needs to appropriate frameworks, policies, and control types.
+- Evaluated the purpose and effectiveness of preventive, detective, and corrective controls.
+- Reviewed how security audits support compliance and continuous improvement.
+- Documented security recommendations using clear, risk-based reasoning.
 
-I assessed the security posture of **Botium Toys** using the provided scope and risk information. The audit reviews the company's controls and considers relevant compliance requirements, including PCI DSS, GDPR, and SOC 1/SOC 2.
+# 📚 Play It Safe: Manage Security Risks - Study Notes & Glossary
 
-The assessment identified a **high risk score of 8/10**, with key gaps including insufficient access restrictions, unencrypted sensitive data, missing backups and disaster recovery planning, and no intrusion detection system. I documented control and compliance observations and proposed prioritized actions, including least-privilege access, encryption, backup and recovery planning, improved password management, IDS deployment, and asset discovery.
+## 🌐 Risk Management & Security Frameworks
 
-### 📄 Exercise Deliverables
+* **Risk:** The likelihood and impact of a threat exploiting a vulnerability.
+* **Risk management:** The process of identifying, assessing, treating, and monitoring risks.
+* **Security framework:** A collection of guidelines, standards, and best practices for managing cybersecurity risk.
+* **NIST Cybersecurity Framework (CSF):** A framework organized around the functions Identify, Protect, Detect, Respond, and Recover.
+* **NIST Risk Management Framework (RMF):** A structured process for managing security and privacy risks throughout a system’s life cycle.
+* **Security posture:** An organization’s overall ability to prevent, detect, respond to, and recover from security threats.
+* **Compliance:** The process of meeting internal requirements and external laws, regulations, and standards.
 
-| Resource                                                  | Description                                                                                 |
-| :-------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| [Botium Toys Security Audit](BotiumToys.md)                | Audit findings, control assessment, compliance observations, and strategic recommendations. |
-| [Audit Scope and Goals](<Audit%20Scope%20and%20Goals.pdf>) | Supporting material defining the audit's scope and objectives.                              |
-| [Control Categories](<Control%20categories.pdf>)           | Reference material for classifying security controls.                                       |
+## ⚠️ Security Controls
 
-## 📚 Study Materials
+* **Security control:** A safeguard or countermeasure used to reduce a specific security risk.
+* **Administrative control:** A policy, procedure, training program, or other governance measure that manages risk.
+* **Technical control:** A technology-based safeguard, such as encryption, firewalls, or access controls.
+* **Physical control:** A physical safeguard, such as locks, security cameras, or access barriers.
+* **Preventive control:** A control designed to stop an incident before it occurs.
+* **Detective control:** A control designed to identify an incident or policy violation.
+* **Corrective control:** A control designed to reduce the impact of an incident and restore normal operations.
+* **Compensating control:** An alternative safeguard used when a primary control cannot be implemented.
 
-- [Course Notes and Glossary](M2-Notes.md) — Consolidated study notes covering security domains, risk management, threats, vulnerabilities, and related concepts.
-- [Botium Toys Security Audit](BotiumToys.md) — The practical assessment and its recommendations.
+## 🧭 Policies, Audits & Risk Treatment
 
-## 🗂️ Folder Contents
+* **Security policy:** A high-level statement defining an organization’s security expectations and responsibilities.
+* **Standard:** A mandatory requirement that supports and enforces a policy.
+* **Procedure:** Step-by-step instructions for completing a security-related task.
+* **Guideline:** Recommended practices that support consistent security decisions.
+* **Security audit:** A systematic review of security policies, controls, and practices against defined requirements.
+* **Risk acceptance:** A decision to acknowledge and tolerate a risk within defined limits.
+* **Risk avoidance:** Eliminating an activity or asset that creates unacceptable risk.
+* **Risk transfer:** Sharing or shifting the financial impact of a risk to another party, often through insurance or contracts.
+* **Risk mitigation:** Reducing the likelihood or impact of a risk through safeguards and controls.
 
-```text
-02-Play-It-Safe/
-├── README.md
-├── M2-Notes.md
-├── BotiumToys.md
-├── Audit Scope and Goals.pdf
-└── Control categories.pdf
-```
+## 🛠️ Common Security Tools
 
-## 💡 Key Takeaway
-
-Effective risk management is not just about identifying weaknesses. It requires understanding what the organization values, evaluating how threats could affect those assets, and choosing proportionate controls that reduce risk while supporting business operations.
+* **Firewall:** A security device or application that filters network traffic based on defined rules.
+* **Intrusion Detection System (IDS):** A tool that monitors activity and alerts on suspected malicious behavior.
+* **Intrusion Prevention System (IPS):** A tool that detects and blocks suspected malicious network activity.
+* **Security Information and Event Management (SIEM):** A platform that collects, correlates, and analyzes security event data.
+* **Vulnerability scanner:** A tool that identifies known weaknesses in systems, applications, or networks.
+* **Endpoint detection and response (EDR):** A technology that monitors endpoints and supports threat investigation and response.
+* **Encryption:** The process of converting readable data into an encoded form to prevent unauthorized access.
