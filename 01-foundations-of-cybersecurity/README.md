@@ -1,78 +1,43 @@
-# 📂 Course 1: Foundations of Cybersecurity
+# 🛡️ Course 1: Foundations of Cybersecurity
 
-## 📌 Overview
+## 📌 Course Overview
 
-This module established the core theoretical and conceptual foundations of cybersecurity, covering fundamental principles, historical context, ethical standards, and standard industry frameworks used to protect organizations.
+**Foundations of Cybersecurity** introduces the cybersecurity profession and the principles that guide the protection of people, organizations, and information. The course explores why cybersecurity matters, how the field has developed, and how security professionals help organizations manage risk and protect their operations.
 
-## 🔑 Key Topics Covered
+This section of my portfolio brings together foundational study material and a professional statement outlining my strengths, values, and career interests in cybersecurity.
 
-- **The Core Security Principles (CIA Triad):** Understanding Confidentiality, Integrity, and Availability and how they drive security measures.
-- **Security Ethics & Compliance:** Importance of ethical standards, privacy laws, and professional conduct in cybersecurity operations.
-- **Frameworks & Controls:** Introduction to security frameworks (like the NIST Cybersecurity Framework - CSF) and security controls (preventative, detective, corrective).
-- **Risk Management Basics:** Identifying assets, evaluating threats and vulnerabilities, and understanding basic risk mitigation strategies.
-- **Security Tools & History:** Evolution of security threats and overview of common tools and methodologies used by modern security teams.
+## 🎯 What I Learned
 
-## 🛠️️ Practical Exercises & Deliverables
+- **Understand the cybersecurity profession:** Explore the role of security professionals, their responsibilities, and entry-level career paths.
+- **Apply the CIA Triad:** Understand how confidentiality, integrity, and availability guide decisions about protecting information and systems.
+- **Recognize threats and threat actors:** Learn about common threat actors, malware, phishing, and social engineering techniques.
+- **Understand security ethics and privacy:** Consider the importance of ethical conduct, privacy protection, and compliance in cybersecurity work.
+- **Explore frameworks and controls:** Learn how frameworks such as the NIST Cybersecurity Framework (CSF), along with security controls, help organizations structure their security efforts.
+- **Build risk awareness:** Identify the relationships between assets, threats, vulnerabilities, and risk.
+- **Connect cybersecurity to business operations:** Understand how security supports organizational resilience and the protection of valuable assets.
 
-- Analyzed real-world security scenarios and case studies.
-- Documented security concepts and framework applications.
-- Created and refined the professional statement and career portfolio foundation.
+## 📝 Course Work & Deliverables
 
-# 📚Foundations of Cybersecurity - Study Notes & Glossary
+- Developed a **professional statement** describing my cybersecurity interests, strengths, values, and the contribution I aim to make to organizations.
+- Compiled a **study glossary** of cybersecurity concepts and terminology from the certificate material.
+- Consolidated foundational knowledge of security principles, threat actors, attack methods, frameworks, and privacy concepts.
 
-## 🌐 Core Concepts & Principles
+## 📄 Portfolio Deliverables
 
-* **Compliance:** The process of adhering to internal standards and external regulations and enables organizations to avoid fines and security breaches.
-* **Security frameworks:** Guidelines used for building plans to help mitigate risks and threats to data and privacy.
-* **Security controls:** Safeguards designed to reduce specific security risks. They are used with security frameworks to establish a strong security posture.
-* **Security posture:** An organization’s ability to manage its defense of critical assets and data and react to change. A strong security posture leads to lower risk for the organization.
-* **Network security:** The practice of keeping an organization's network infrastructure secure from unauthorized access. This includes data, services, systems, and devices that are stored in an organization’s network.
-* **Cloud security:** The process of ensuring that assets stored in the cloud are properly configured, or set up correctly, and access to those assets is limited to authorized users.
-* **Programming in Security:** A process used to create instructions for computers to execute tasks like task automation, reviewing web traffic, and alerting suspicious activity.
+| Resource                                           | Description                                                                     |
+| :------------------------------------------------- | :------------------------------------------------------------------------------ |
+| [Professional Statement](professional-statement.md) | Professional profile, strengths, values, target audience, and career interests. |
+| [Cybersecurity Glossary](Glossary.md)               | Study reference with cybersecurity terms and definitions.                       |
 
-## ⚠️ Threat Actors & Vectors
+## 🗂️ Folder Contents
 
-* **Threat actor:** Any person or group who presents a security risk to computers, applications, networks, and data.
-* **Internal threat:** Current or former employees, external vendors, or trusted partners who pose a security risk (can be accidental or intentional).
-* **Computer Virus:** Malicious code written to interfere with computer operations and cause damage to data and software.
+```text
+01-foundations-of-cybersecurity/
+├── README.md
+├── professional-statement.md
+└── Glossary.md
+```
 
-### Phishing Types
+## 💡 Key Takeaway
 
-* **Business Email Compromise (BEC):** An email message that seems to be from a known source requesting information for financial advantage.
-* **Spear phishing:** A malicious email attack targeting a specific user or group, appearing to originate from a trusted source.
-* **Whaling:** A form of spear phishing targeting company executives.
-* **Vishing:** Exploitation of electronic voice communication to obtain sensitive information.
-* **Smishing:** The use of text messages to trick users into revealing sensitive data.
-
-### Malware Types
-
-* **Viruses:** Malicious code requiring user initiation (via attachments or downloads) to spread and damage files.
-* **Worms:** Malware that self-replicates and spreads across systems on its own without user action.
-* **Ransomware:** Attacks where threat actors encrypt data and demand payment for restoration.
-* **Spyware:** Malware used to gather and sell personal information without consent.
-
-### Social Engineering & Principles
-
-* **Social Engineering:** Manipulation techniques exploiting human error (trusting blindly).
-* **Common Attacks:** Social media phishing, watering hole attacks, USB baiting, and physical social engineering.
-* **Key Principles:** Authority, Intimidation, Consensus/Social proof, Scarcity, Familiarity, Trust, and Urgency.
-
----
-
-## 📖 Terms & Definitions Glossary
-
-* **Asset:** An item perceived as having value to an organization.
-* **Availability:** The idea that data is accessible to those who are authorized to access it.
-* **Compliance:** The process of adhering to internal standards and external regulations.
-* **Confidentiality:** The idea that only authorized users can access specific assets or data.
-* **CIA Triad (Confidentiality, Integrity, Availability):** A model helping organizations consider risk when setting up systems and policies.
-* **Hacktivist:** A person who uses hacking to achieve a political goal.
-* **HIPAA:** U.S. federal law established to protect patients' health information.
-* **Integrity:** The idea that data is correct, authentic, and reliable.
-* **NIST Cybersecurity Framework (CSF):** A voluntary framework of standards, guidelines, and best practices to manage cybersecurity risk.
-* **Privacy protection:** The act of safeguarding personal information from unauthorized use.
-* **Protected Health Information (PHI):** Information relating to past, present, or future physical/mental health conditions.
-* **Security architecture:** A security design composed of tools and processes protecting organizations from risks.
-* **Security ethics:** Guidelines for making appropriate decisions as a security professional.
-* **Security governance:** Practices supporting, defining, and directing security efforts.
-* **Sensitive Personally Identifiable Information (SPII):** Specific PII falling under stricter handling guidelines.
+Cybersecurity is both a technical discipline and an organizational responsibility. Strong security begins with understanding what must be protected, the risks that could affect it, and the ethical responsibilities involved in safeguarding people and information.
