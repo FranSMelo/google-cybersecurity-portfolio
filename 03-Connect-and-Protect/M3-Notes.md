@@ -173,3 +173,191 @@
 * **Security & Routing:** IPv6 provides more efficient routing and eliminates private address collisions common in IPv4.
 
 ![Side by side diagrams of an IPv4 packet header and a simplified IPv6 packet](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/PNld6YkmQNWyhZjFFHvC-Q_eb474e5ee3b3416fbc06a639503342f1_CS_R-044_IPv4-and-IPv6.png?expiry=1791394756139&hmac=3DKoQcNQVpBwSQaHVkbqNg8g8nkKC1vaKMVSqIRyi7Q)
+
+---
+
+---
+
+# 📚Network Operations
+
+### 📜 Common Network Protocols and Security
+
+* **Definition:** A set of rules and instructions that dictate the order of delivery and structure of data packets, acting as a common language for global devices.
+* **Security Implications:** Analysts must understand protocol vulnerabilities; for instance, malicious actors can exploit DNS to redirect traffic to malicious websites.
+
+#### 💬 Communication Protocols
+
+* **Transmission Control Protocol (TCP) (Transport Layer):** A connection-oriented protocol using a three-way handshake (`SYN` $\rightarrow$ `SYN/ACK` $\rightarrow$ `ACK`) to establish reliable connections and stream data.
+* **User Datagram Protocol (UDP) (Transport Layer):** A connectionless, faster protocol used for performance-sensitive applications and DNS requests, prioritizing speed over strict delivery tracking.
+* **Hypertext Transfer Protocol (HTTP) (Application Layer, Port 80):** An insecure protocol for client-server web communication, steadily being replaced by its secure counterpart.
+* **Domain Name System (DNS) (Application Layer, Port 53):** Translates human-readable domain names into IP addresses; primarily uses UDP, but switches to TCP for larger responses.
+
+#### ⚙️ Management Protocols
+
+* **Simple Network Management Protocol (SNMP) (Application Layer):** Used to monitor and manage network devices, reset device passwords, modify configurations, and check bandwidth usage.
+* **Internet Control Message Protocol (ICMP) (Internet Layer):** Used for error reporting and status updates (such as via the `ping` command) to troubleshoot network connectivity and latency.
+
+#### 🔒 Security Protocols
+
+* **Hypertext Transfer Protocol Secure (HTTPS) (Application Layer, Port 443):** A secure version of HTTP that encrypts all transmissions using SSL/TLS to protect data from interception.
+* **Secure File Transfer Protocol (SFTP) (Application Layer, Port 22):** Used for secure file transfers (frequently in cloud storage) leveraging Secure Shell (SSH) and Advanced Encryption Standard (AES) encryption.
+* **Metadata Limitation:** Encryption protocols secure data payloads in transit, but they do not conceal the source or destination IP addresses of network traffic.
+
+#### 🖧 Advanced Network Protocols, NAT, and Port Numbers
+
+##### 🔄 Network Address Translation (NAT) and IP Addressing
+
+* **NAT Definition:** The process where a router or firewall replaces a private source IP address with a single public IP address for outgoing internet traffic, reversing the process for responses.
+* **Private IP Addresses:** Assigned by routers; unique only within a private network; free to use.
+  * *Ranges:* `10.0.0.0–10.255.255.255`, `172.16.0.0–172.31.255.255`, `192.168.0.0–192.168.255.255`.
+* **Public IP Addresses:** Assigned by ISPs/IANA; globally unique; leased for a cost.
+
+##### ⚙️ Management and Resolution Protocols
+
+* **Dynamic Host Configuration Protocol (DHCP) (Application Layer):** Automatically configures devices by assigning unique IP addresses, DNS server info, and default gateways.
+  * *Ports:* UDP port 67 (servers) and UDP port 68 (clients).
+* **Address Resolution Protocol (ARP) (Network Access Layer):** Translates IP addresses into hardware MAC addresses for local network communication and maintains an ARP cache (no port number).
+
+##### 🖥️ Remote Access Protocols
+
+* **Telnet (Application Layer, TCP Port 23):** Used for remote system connections via command line, but transmits all data and authentication in clear text (insecure).
+* **Secure Shell (SSH) (Application Layer, TCP Port 22):** A secure alternative to Telnet that provides encrypted communication and robust authentication using AES and other ciphers.
+
+##### 📧 Email Protocols
+
+* **Post Office Protocol 3 (POP3) (Application Layer):** Retrieves and downloads emails locally to a device; options may delete messages from the server, limiting multi-device synchronization.
+  * *Ports:* TCP/UDP port 110 (unencrypted), TCP/UDP port 995 (encrypted via SSL/TLS).
+* **Internet Message Access Protocol (IMAP) (Application Layer):** Keeps message content on the mail server while downloading headers, allowing users to sync and access emails seamlessly across multiple devices.
+  * *Ports:* TCP port 143 (unencrypted), TCP port 993 (encrypted via TLS).
+* **Simple Mail Transfer Protocol (SMTP) (Application Layer):** Transmits and routes outgoing emails using Message Transfer Agents (MTAs). Port 25 is often exploited for spam.
+  * *Ports:* TCP/UDP port 25 (unencrypted), TCP/UDP port 587 (encrypted via TLS, SMTPS).
+
+##### 📋 Protocol and Port Reference Guide
+
+| Protocol         | Port Number(s)                     | Security / Type             |
+| :--------------- | :--------------------------------- | :-------------------------- |
+| **DHCP**   | UDP 67 (Servers), UDP 68 (Clients) | Management / Configuration  |
+| **ARP**    | None (Layer 2)                     | Resolution                  |
+| **Telnet** | TCP 23                             | Remote Access (Unencrypted) |
+| **SSH**    | TCP 22                             | Remote Access (Encrypted)   |
+| **POP3**   | TCP/UDP 110 / 995 (SSL/TLS)        | Email Retrieval             |
+| **IMAP**   | TCP 143 / 993 (SSL/TLS)            | Email Sync & Retrieval      |
+| **SMTP**   | TCP/UDP 25 / 587 (TLS)             | Email Transmission          |
+
+---
+
+## 📶 The Evolution of Wireless Security Protocols
+
+📡 Wireless Communication and IEEE 802.11
+
+* **Wi-Fi Origins:** Based on the IEEE 802.11 family of internet communication standards, wireless networking relies on radio wave frequencies to connect everyday devices and enterprise hardware.
+* **Protocol Evolution:** Wireless security protocols have evolved continuously to patch vulnerabilities and counter advanced threat actor tactics.
+
+#### 🔓 Legacy and Vulnerable Protocols: WEP and WPA
+
+* **Wired Equivalent Privacy (WEP) (1999):**
+  * The oldest wireless security standard designed to mirror wired security.
+  * Considered high risk today due to easily broken encryption, though it may still appear on legacy equipment or unconfigured default routers.
+* **Wi-Fi Protected Access (WPA) (2003):**
+  * Developed as a transitional measure to replace WEP and support older hardware.
+  * Utilized **Temporal Key Integrity Protocol (TKIP)** and message integrity checks to detect tampering.
+  * **Vulnerability:** Susceptible to Key Reinstallation Attacks (**KRACK**), where attackers manipulate the authentication handshake to bypass encryption.
+
+### 🛡️ Modern Standards: WPA2 and WPA3
+
+#### 🔒 WPA2 (2004)
+
+* **Encryption:** Replaced TKIP with the **Advanced Encryption Standard (AES)** and used the Counter Mode Cipher Block Chain Message Authentication Code Protocol (**CCMP**) for integrity and encapsulation.
+* **Deployment Modes:**
+  * **Personal:** Ideal for home networks; simple setup using a shared global passphrase applied to each device.
+  * **Enterprise:** Tailored for businesses, offering centralized, individualized access control where users never handle raw encryption keys.
+* **Vulnerability:** Like WPA, it remains vulnerable to KRACK attacks.
+
+#### 🌟 WPA3 (2018)
+
+* **Enhanced Security:** Addresses the KRACK handshake vulnerability present in WPA2.
+* **Simultaneous Authentication of Equals (SAE):** Uses a password-authenticated, cipher-key-sharing agreement to prevent offline dictionary attacks.
+* **Encryption Strength:** Standardizes 128-bit encryption, with WPA3-Enterprise offering an optional 192-bit mode for high-security environments.
+
+---
+
+## 🌐 Subnetting and CIDR
+
+* **Definition:** Subnetting is the process of dividing a single large network into several smaller, organized groups known as subnets[cite: 1].
+* **Network Structure:** Subnets are defined by a unique combination of an IP address and a network mask, effectively creating a "network within a network"[cite: 1].
+* **Communication Efficiency:** When devices on the same subnet communicate, switches keep transmissions within that subnet to improve speed and efficiency[cite: 1].
+
+### 🔠 Classless Inter-Domain Routing (CIDR) Notation
+
+* **Purpose:** CIDR is a method of assigning subnet masks to IP addresses to create subnets and expand available IPv4 addresses by replacing outdated classful addressing[cite: 1].
+* **Format:** CIDR IP addresses include an IPv4 address followed by a slash ("/") and an **IP network prefix** (e.g., `198.51.100.0/24`)[cite: 1].
+* **Routing Benefits:** This addressing system reduces the number of routing table entries while providing more available IP addresses within networks[cite: 1].
+
+### 🛡️ Security Benefits of Subnetting
+
+* **Bandwidth and Performance:** Subnetting allows network professionals to use network bandwidth more efficiently and enhance overall network performance without requesting extra IP addresses from an ISP[cite: 1].
+* **Security Zones:** It is a key strategy used to create isolated subnetworks through physical isolation, routing configurations, and firewalls to establish security zones.
+
+---
+
+## 🔒 Virtual Networks, Protocols, and Security Tools
+
+* **Categories:** Network protocols are divided into three main groups:
+* **Communication Protocols:** Establish connections and data frameworks (e.g., TCP, UDP, SMTP).
+* **Management Protocols:** Used for network troubleshooting (e.g., ICMP).
+* **Security Protocols:** Provide encryption for data in transit (e.g., IPSec, SSL/TLS).
+* **Additional Key Protocols:**
+
+  * **HTTP:** Application layer communication protocol between web browsers and servers.
+  * **DNS:** Maps hostnames to IP addresses.
+  * **ARP:** Maps IP addresses to physical MAC addresses on a local network.
+* **Wi-Fi Security:** Evolution spans WEP, WPA, WPA2, and WPA3. WPA3 uses AES encryption and offers Personal (home) and Enterprise (business) deployment modes.
+
+#### 🛡️ Network Security Tools and Practices
+
+##### 🔥 Firewalls
+
+* **Stateless Firewalls:** Operate on predefined rules without tracking packet connection history.
+* **Stateful Firewalls:** Use a "state table" to track connections and filter threats, requiring rules in only one direction for return traffic.
+* **Next-Generation Firewalls (NGFWs):** Advanced protection featuring deep packet inspection, intrusion prevention, application-aware rules, malware sandboxing, anti-virus, and URL/DNS filtering.
+
+##### 🔄 Proxy Servers
+
+* **Function:** Use Network Address Translation (NAT) to act as a security barrier between internal clients and external threats.
+* **Forward vs. Reverse:** Forward proxies handle internal client queries to external resources; reverse proxies handle external requests destined for internal network services.
+* **Filtering:** Can be configured with rules to block malicious or unauthorized websites.
+
+##### 🌐 Virtual Private Networks (VPNs) & SD-WAN
+
+* **VPN Operation:** Encrypts data in transit and disguises IP addresses using **encapsulation** (wrapping unencrypted data in encrypted packets).
+* **Use Cases:** Protects corporate communications for remote users and enhances personal privacy by concealing IP addresses from external servers.
+* **SD-WAN Integration:** Organizations increasingly combine VPN capabilities with Software-Defined Wide Area Networks (SD-WAN) to securely connect users to cloud applications across wide geographical distances.
+
+#### 🔒 VPN Protocols: Wireguard, IPSec, and Network Topologies
+
+* **Definition:** A network security service that changes public IP addresses and hides virtual locations to maintain data privacy on public networks like the internet.
+
+* **Mechanism:** Uses a server as a gateway to create a virtual tunnel that conceals IP addresses and encrypts data in transit.
+* **VPN Protocols:** Sets of rules or instructions that determine how secure network tunnels are formed and how data moves between network endpoints (computers, mobile devices, servers).
+
+##### 🏗️ Types of VPN Architecture
+
+* **Remote Access VPNs:**
+  * Used by individual users to establish a secure connection between a personal device and a VPN server over the internet.
+  * Encrypts and decrypts all data exchanged through the personal device.
+* **Site-to-Site VPNs:**
+  * Utilized largely by enterprises to extend their private network across multiple global locations and networks.
+  * Typically uses IPSec to create encrypted tunnels between networks, though they are more complex to configure and manage than remote access VPNs.
+
+##### ⚖️ WireGuard VPN versus IPSec VPN
+
+###### 🌟 WireGuard VPN
+
+* **Performance & Speed:** A high-speed, modern protocol designed with fewer lines of code for enhanced download speeds and performance (ideal for streaming video or large downloads).
+* **Usability & Open Source:** Open-source architecture makes it easy to deploy, debug, set up, and maintain.
+* **Versatility:** Can be used for both site-to-site connections and client-server (remote access) connections.
+
+###### 🔐 IPSec VPN
+
+* **Establishment & Adoption:** An older, highly established protocol supported by many operating systems, known for extensive security testing, widespread adoption, and robust packet authentication/encryption.
+* **Complexity:** More complex to configure compared to WireGuard, but favored by many clients due to its long history of enterprise use.
