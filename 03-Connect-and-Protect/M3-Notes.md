@@ -498,3 +498,54 @@
 * **Multi-Factor Authentication (MFA) & Two-Factor Authentication (2FA):** Requires users to verify their identity using two or more distinct factors (e.g., passwords, biometrics, or one-time codes sent to devices).
 * **CAPTCHA & reCAPTCHA:** Automated tests designed to distinguish humans from automated bots, preventing automated scripts from executing brute-force login attempts.
 * **Password Policies:** Standardize organizational requirements for password complexity, expiration frequency, reuse restrictions, and account lockout thresholds after consecutive failed logins.
+
+---
+
+## 🛡️ Network Security Applications and Layered Defense
+
+* **Defense-in-Depth:** The strategic approach of combining multiple devices, tools, and security controls to incrementally harden a network until an optimal level of protection is achieved.
+
+* **Architecture Placement:** Each network security tool occupies a specific position in network topologies, working sequentially to filter, inspect, and monitor traffic from the internet to the local area network (LAN).
+
+### 🔍 Core Network Security Tools
+
+#### 🔥 Firewalls
+
+* **Function:** Inspects packet headers (and payloads in NGFWs) to allow or block traffic based on a predefined set of rules.
+* **Advantage:** Provides the minimum baseline security layer for any network or individual system.
+* **Limitation:** Restricted to filtering packets based on header/port information unless utilizing advanced application-aware features.
+
+#### 🕵️ Intrusion Detection System (IDS)
+
+* **Function:** An application placed behind the firewall (and before the LAN) that monitors system activity, sniffing data packets to alert administrators on known attack signatures or anomalies.
+* **Advantage:** Reduces false positives by analyzing traffic after the firewall has already filtered disallowed packets.
+* **Limitation:** Can only scan for known attacks or obvious anomalies; does not actively block incoming malicious traffic, requiring manual intervention.
+
+#### 🛑 Intrusion Prevention System (IPS)
+
+* **Function:** An inline security application positioned between the firewall and the internal network that monitors for intrusions and actively blocks suspicious senders or drops malicious packets.
+* **Advantage:** Offers proactive protection by disrupting risky data streams before they reach sensitive network segments.
+* **Limitation:** Being an inline appliance, hardware or software failure will break the connection between the private network and the internet; potential for false positives dropping legitimate traffic.
+
+#### 📦 Full Packet Capture Devices
+
+* **Function:** Tools used to record and analyze all network data transmissions, heavily aiding in the investigation of alerts triggered by systems like an IDS.
+
+#### 📊 Security Information and Event Management (SIEM)
+
+* **Function:** An application (such as Google Chronicle or Splunk) that aggregates and analyzes real-time log data from IDSs, IPSs, firewalls, VPNs, proxies, and DNS logs into a centralized dashboard ("single pane of glass").
+* **Advantage:** Provides security analysts in a Security Operations Center (SOC) with comprehensive visibility to monitor, search, and respond to critical activities.
+* **Limitation:** Does not replace analyst expertise or active prevention controls; it only reports and aggregates security events.
+
+#### 📋 Security Tools Comparison Matrix
+
+
+
+| Device / Tool                                              | Advantages                                                                                             | Disadvantages                                                                                              |
+| :--------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| **Firewall**                                         | Allows or blocks traffic based on a set of rules.                                                      | Only filters packets based on information provided in packet headers.                                      |
+| **Intrusion Detection System (IDS)**                 | Detects and alerts administrators about possible intrusions, attacks, and malicious traffic.           | Only scans for known attacks or obvious anomalies; does not stop incoming traffic.                         |
+| **Intrusion Prevention System (IPS)**                | Monitors activity for intrusions/anomalies and actively takes action to stop them.                     | Inline appliance (failure breaks internet connection); potential false positives block legitimate traffic. |
+| **Security Information and Event Management (SIEM)** | Collects, aggregates, and analyzes log data across multiple network machines into a central dashboard. | Only reports on possible security issues; does not take direct action to stop or prevent events.           |
+
+![An image showing the differences between a firewall, IPS, and IDS.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/4ENRXSswQSOsOrKt9KyG6A_06fe04a8d10846ba811fe89a969642f1_CS_R-055_Firewall-IDS-and-IPS.png?expiry=1791549736389&hmac=nC33IFUJAsUY9oNSvBGp-Uj6SpZleQ3Skm_OOrb_cmY)
