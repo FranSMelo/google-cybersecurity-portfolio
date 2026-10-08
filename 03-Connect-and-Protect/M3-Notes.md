@@ -389,6 +389,7 @@
   * Particularly relevant to government and critical infrastructure networks (e.g., power grids, water systems, military defense communications).
   * Compromises in these sectors can expose the public to physical harm and national security threats.
 
+---
 
 ## 🔍 Network Protocol Analyzers and `tcpdump`
 
@@ -412,26 +413,53 @@
 * **Source & Destination Ports:** Show the specific ports utilized in the communications.
 * **Resolution Defaults:** By default, `tcpdump` attempts to resolve IP addresses to hostnames and maps port numbers to commonly associated services.
 
+
+
 ![types of information presented in a tcpdump packet capture.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1791540432242&hmac=iS07Gbh4W8UaYl2TG5Yrj1usnq5sGYZ--rlLJw9cGAM)
 
-
+---
 
 ## ⚡ Real-Life Distributed Denial of Service (DDoS) Attacks
 
 ### 🌐 Understanding DDoS and Volumetric Attacks
 
-* **Definition:** A Distributed Denial of Service (DDoS) attack is a malicious attempt to disrupt a target system, network, or website by flooding it with high volumes of traffic from multiple distributed, compromised systems (often referred to as a **botnet**)[cite: 1].
-* **Impact:** The overwhelming traffic volume leads to a denial of service for legitimate users, rendering the targeted service, website, or infrastructure completely inaccessible and causing significant financial and reputational damage[cite: 1].
+* **Definition:** A Distributed Denial of Service (DDoS) attack is a malicious attempt to disrupt a target system, network, or website by flooding it with high volumes of traffic from multiple distributed, compromised systems (often referred to as a **botnet**).
+* **Impact:** The overwhelming traffic volume leads to a denial of service for legitimate users, rendering the targeted service, website, or infrastructure completely inaccessible and causing significant financial and reputational damage.
 
 ### 🏢 Case Study: The October 2016 DNS DDoS Attack
 
-* **Target & Mechanism:** On October 21, 2016, a major DNS service provider hosting DNS records for numerous prominent companies experienced a massive DDoS attack when a botnet flooded its servers with tens of millions of DNS requests starting at 7:00 a.m[cite: 1].
-* **Botnet Origin:** The botnet was originally created by university students who posted the code online to target gaming servers; cyber criminals later learned and used the code to remotely control the bots against the DNS service provider[cite: 1].
-* **Widespread Disruption:** The overwhelming traffic caused the DNS service to shut down, making all websites using the provider unreachable and triggering outages across North America and Europe[cite: 1].
-* **Mitigation:** The provider's systems were successfully restored after two hours of downtime, and subsequent waves of botnet attacks were effectively mitigated[cite: 1].
+* **Target & Mechanism:** On October 21, 2016, a major DNS service provider hosting DNS records for numerous prominent companies experienced a massive DDoS attack when a botnet flooded its servers with tens of millions of DNS requests starting at 7:00 a.m.
+* **Botnet Origin:** The botnet was originally created by university students who posted the code online to target gaming servers; cyber criminals later learned and used the code to remotely control the bots against the DNS service provider.
+* **Widespread Disruption:** The overwhelming traffic caused the DNS service to shut down, making all websites using the provider unreachable and triggering outages across North America and Europe.
+* **Mitigation:** The provider's systems were successfully restored after two hours of downtime, and subsequent waves of botnet attacks were effectively mitigated.
 
 ### 🛡️ Defensive Takeaways
 
-* **Infrastructure Resilience:** The incident highlighted how critical core DNS infrastructure and service providers are to the availability of the internet, underscoring the need for robust DDoS protection and traffic mitigation[cite: 1].
-* **Dynamic Scaling:** Distributing important operations across hosts that can be dynamically scaled ensures that operations can continue even if baseline host infrastructure goes offline during an attack[cite: 1].
-* **Analyst Vigilance:** Security analysts must implement concrete mitigation strategies and monitor network operations to protect organizations against the devastating financial and reputational impacts of DDoS attacks[cite: 1].
+* **Infrastructure Resilience:** The incident highlighted how critical core DNS infrastructure and service providers are to the availability of the internet, underscoring the need for robust DDoS protection and traffic mitigation.
+* **Dynamic Scaling:** Distributing important operations across hosts that can be dynamically scaled ensures that operations can continue even if baseline host infrastructure goes offline during an attack.
+* **Analyst Vigilance:** Security analysts must implement concrete mitigation strategies and monitor network operations to protect organizations against the devastating financial and reputational impacts of DDoS attacks.
+
+---
+
+## 🕵️ Packet Sniffing, IP Spoofing, and Interception Attacks
+
+* **Definition:** Packet sniffing is the practice of capturing and inspecting data packets as they travel across a network.
+* **Promiscuous Mode:** Network Interface Cards (NICs) normally process packets addressed to their own MAC address, but can be set to **promiscuous mode** to accept all network traffic regardless of the destination.
+* **Tools & Risks:** Attackers use tools like Wireshark to capture private data (such as usernames and passwords) or gather IP/MAC addresses to perform subsequent spoofing attacks.
+
+### 🎭 IP Spoofing and Associated Attacks
+
+* **IP Spoofing:** A tactic where an attacker impersonates the IP and MAC addresses of authorized devices after sniffing network traffic. Firewalls can mitigate this by refusing unauthorized packets and suspicious traffic.
+* **On-Path Attacks (Meddler-in-the-Middle):**
+  * Hackers intercept communications between two trusted devices or servers to harvest credentials or spoof DNS responses.
+  * Spoofing a DNS lookup allows attackers to redirect domains to malicious IP addresses.
+  * **Mitigation:** Encrypting data in transit using TLS is the primary defense.
+* **Smurf Attacks:**
+  * Combines IP spoofing with a DoS technique by sending spoofed ping packets (ICMP echoes) to a network broadcast address.
+  * The broadcast floods all network devices with responses, overwhelming servers and causing shutdowns.
+  * **Mitigation:** Next-Generation Firewalls (NGFWs) detect network anomalies and oversized broadcasts.
+* **Denial of Service (DoS):** Attackers flood a server with authorized or fake packets to crash the system and prevent legitimate activity.
+
+### 🛡️ Defense and Mitigation Strategies
+
+* **Defense-in-Depth:** Combining multiple overlapping security controls—such as advanced firewalls, strict network monitoring, and industry-standard encryption—ensures robust protection against interception and spoofing attacks.
