@@ -413,8 +413,6 @@
 * **Source & Destination Ports:** Show the specific ports utilized in the communications.
 * **Resolution Defaults:** By default, `tcpdump` attempts to resolve IP addresses to hostnames and maps port numbers to commonly associated services.
 
-
-
 ![types of information presented in a tcpdump packet capture.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1791540432242&hmac=iS07Gbh4W8UaYl2TG5Yrj1usnq5sGYZ--rlLJw9cGAM)
 
 ---
@@ -463,3 +461,40 @@
 ### 🛡️ Defense and Mitigation Strategies
 
 * **Defense-in-Depth:** Combining multiple overlapping security controls—such as advanced firewalls, strict network monitoring, and industry-standard encryption—ensures robust protection against interception and spoofing attacks.
+
+---
+
+---
+
+# 📚Security Hardening
+
+**Security hardening** is the practice of securing a system, operating system, or network infrastructure by reducing its attack surface and eliminating vulnerabilities. This is achieved through administrative policies, removing unnecessary software and services, closing unused ports, enforcing strong access controls, and applying regular security patches. Hardening ensures that default configurations—which are often insecure—are locked down to protect against unauthorized access and cyber threats.
+
+## 🛡️OS hardening
+
+### 🔑 Brute Force Attacks
+
+* **Definition:** A trial-and-error process used by malicious actors to guess private credentials and discover sensitive information.
+* **Types of Brute Force Attacks:**
+  * **Simple Brute Force:** Attackers manually or automatically try every possible combination of usernames and passwords until access is gained.
+  * **Dictionary Attacks:** Utilize lists of commonly used passwords and credentials stolen from previous data breaches to test against a system.
+* **Tool Usage:** While manual attempts are tedious and time-consuming, attackers leverage automated software tools to execute high-speed brute force attacks.
+
+### 🧪 Assessing Vulnerabilities: VMs and Sandboxes
+
+* **Virtual Machines (VMs):**
+  * Software-based simulations of physical computers that provide an isolated environment to test code, investigate potentially infected machines, or run malware safely.
+  * Allows analysts to revert to pristine snapshots or delete compromised environments, though a small risk exists of malware escaping virtualization to the host.
+* **Sandbox Environments:**
+  * Dedicated testing environments operating completely separate from the production network.
+  * Used for testing patches, identifying bugs, evaluating suspicious software or malicious files, and simulating attacks.
+  * *Note:* Advanced malware can sometimes detect execution inside a sandbox or VM and temporarily alter its behavior to appear harmless.
+
+### 🛑 Prevention and Mitigation Measures
+
+* **Hashing and Salting:**
+  * *Hashing:* Converts passwords into unique, one-way values to protect integrity.
+  * *Salting:* Appends random characters to passwords prior to hashing to increase complexity and thwart precomputed dictionary (rainbow table) attacks.
+* **Multi-Factor Authentication (MFA) & Two-Factor Authentication (2FA):** Requires users to verify their identity using two or more distinct factors (e.g., passwords, biometrics, or one-time codes sent to devices).
+* **CAPTCHA & reCAPTCHA:** Automated tests designed to distinguish humans from automated bots, preventing automated scripts from executing brute-force login attempts.
+* **Password Policies:** Standardize organizational requirements for password complexity, expiration frequency, reuse restrictions, and account lockout thresholds after consecutive failed logins.
