@@ -504,7 +504,6 @@
 ## 🛡️ Network Security Applications and Layered Defense
 
 * **Defense-in-Depth:** The strategic approach of combining multiple devices, tools, and security controls to incrementally harden a network until an optimal level of protection is achieved.
-
 * **Architecture Placement:** Each network security tool occupies a specific position in network topologies, working sequentially to filter, inspect, and monitor traffic from the internet to the local area network (LAN).
 
 ### 🔍 Core Network Security Tools
@@ -539,8 +538,6 @@
 
 #### 📋 Security Tools Comparison Matrix
 
-
-
 | Device / Tool                                              | Advantages                                                                                             | Disadvantages                                                                                              |
 | :--------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
 | **Firewall**                                         | Allows or blocks traffic based on a set of rules.                                                      | Only filters packets based on information provided in packet headers.                                      |
@@ -549,3 +546,40 @@
 | **Security Information and Event Management (SIEM)** | Collects, aggregates, and analyzes log data across multiple network machines into a central dashboard. | Only reports on possible security issues; does not take direct action to stop or prevent events.           |
 
 ![An image showing the differences between a firewall, IPS, and IDS.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/4ENRXSswQSOsOrKt9KyG6A_06fe04a8d10846ba811fe89a969642f1_CS_R-055_Firewall-IDS-and-IPS.png?expiry=1791549736389&hmac=nC33IFUJAsUY9oNSvBGp-Uj6SpZleQ3Skm_OOrb_cmY)
+
+---
+
+## ☁️ Cloud Hardening
+
+### 🔒 Unique Cloud Security Considerations
+
+* **Identity Access Management (IAM):** A collection of processes and technologies that manage digital identities and authorize resource usage; loose role configurations frequently expose critical cloud operations to unauthorized users.
+* **Configuration Complexity:** Expanding cloud ecosystems and migrations require meticulous configuration to uphold security and compliance standards, as misconfigured services are a frequent source of breaches.
+* **Attack Surface:** Utilizing numerous cloud applications and services increases entry points and overall risk, requiring compensating security controls even though Cloud Service Providers (CSPs) undergo extensive security scrutiny.
+* **Zero-Day Attacks:** Previously unknown exploits that affect cloud and on-premises solutions; CSPs often detect and patch hypervisors or migrate workloads before customers are impacted.
+* **Visibility and Tracking:** Unlike traditional networks where administrators can sniff all data packets, CSPs restrict direct traffic monitoring on their servers, though visibility is maintained through flow logs, packet mirroring, and third-party security audits.
+* **Rapid Technological Changes:** CSP infrastructure and service updates occur frequently, requiring organizations to continuously adapt their IT processes and connection configurations to maintain security.
+
+### **🤝 The Shared Responsibility Model**
+
+* **Definition:** A commonly accepted cloud security principle that clearly defines where the responsibility of the Cloud Service Provider (CSP) ends and the user organization's responsibility begins.
+* **Cloud Service Provider (CSP) Responsibilities:** Responsible for securing the underlying cloud infrastructure, including physical data centers, host operating systems, and hypervisors.
+* **Customer / Organization Responsibilities:** Responsible for securing their own assets, data, and processes stored in the cloud, as well as correctly configuring services according to organizational security requirements.
+
+### 🔒 Cloud Security Hardening Techniques
+
+* **Identity Access Management (IAM):** Manages digital identities and authorizes user access to cloud resources.
+* **Hypervisors:** Abstract host hardware from operating software environments.
+  * *Type 1:* Run directly on host hardware (e.g., VMware ESXi) and are commonly managed by Cloud Service Providers (CSPs).
+  * *Type 2:* Operate on top of a host operating system (e.g., VirtualBox).
+  * *VM Escape:* A critical vulnerability where a malicious actor compromises the hypervisor to gain access to the host or other virtual machines.
+* **Baselining:** Establishing fixed reference configurations (such as restricted admin portals, enforced password management, file encryption, and database threat detection) to monitor and secure cloud environments.
+
+### 🔐 Cryptography in the Cloud
+
+* **Data Protection:** Uses encryption and secure key management systems to ensure confidentiality and integrity for data processed and stored in the cloud.
+* **Cryptographic Erasure (Crypto-Shredding):** A modern data destruction technique that securely deletes all copies of the encryption keys used for ciphertext, rendering the underlying data permanently undecipherable.
+* **Key Management & Hardware Security:**
+  * **Trusted Platform Module (TPM):** A secure hardware chip used to store passwords, certificates, and encryption keys.
+  * **Cloud Hardware Security Module (CloudHSM):** A dedicated computing device providing secure cryptographic key storage and processing operations.
+* **Customer Responsibilities:** While CSPs manage underlying infrastructure, customers can often provide their own encryption keys, making key confidentiality the customer's sole responsibility. Frameworks like FedRAMP help verify CSP security controls.
