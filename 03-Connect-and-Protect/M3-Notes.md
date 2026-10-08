@@ -283,19 +283,19 @@
 
 ## 🌐 Subnetting and CIDR
 
-* **Definition:** Subnetting is the process of dividing a single large network into several smaller, organized groups known as subnets[cite: 1].
-* **Network Structure:** Subnets are defined by a unique combination of an IP address and a network mask, effectively creating a "network within a network"[cite: 1].
-* **Communication Efficiency:** When devices on the same subnet communicate, switches keep transmissions within that subnet to improve speed and efficiency[cite: 1].
+* **Definition:** Subnetting is the process of dividing a single large network into several smaller, organized groups known as subnets.
+* **Network Structure:** Subnets are defined by a unique combination of an IP address and a network mask, effectively creating a "network within a network".
+* **Communication Efficiency:** When devices on the same subnet communicate, switches keep transmissions within that subnet to improve speed and efficiency.
 
 ### 🔠 Classless Inter-Domain Routing (CIDR) Notation
 
-* **Purpose:** CIDR is a method of assigning subnet masks to IP addresses to create subnets and expand available IPv4 addresses by replacing outdated classful addressing[cite: 1].
-* **Format:** CIDR IP addresses include an IPv4 address followed by a slash ("/") and an **IP network prefix** (e.g., `198.51.100.0/24`)[cite: 1].
-* **Routing Benefits:** This addressing system reduces the number of routing table entries while providing more available IP addresses within networks[cite: 1].
+* **Purpose:** CIDR is a method of assigning subnet masks to IP addresses to create subnets and expand available IPv4 addresses by replacing outdated classful addressing.
+* **Format:** CIDR IP addresses include an IPv4 address followed by a slash ("/") and an **IP network prefix** (e.g., `198.51.100.0/24`).
+* **Routing Benefits:** This addressing system reduces the number of routing table entries while providing more available IP addresses within networks.
 
 ### 🛡️ Security Benefits of Subnetting
 
-* **Bandwidth and Performance:** Subnetting allows network professionals to use network bandwidth more efficiently and enhance overall network performance without requesting extra IP addresses from an ISP[cite: 1].
+* **Bandwidth and Performance:** Subnetting allows network professionals to use network bandwidth more efficiently and enhance overall network performance without requesting extra IP addresses from an ISP.
 * **Security Zones:** It is a key strategy used to create isolated subnetworks through physical isolation, routing configurations, and firewalls to establish security zones.
 
 ---
@@ -336,7 +336,6 @@
 #### 🔒 VPN Protocols: Wireguard, IPSec, and Network Topologies
 
 * **Definition:** A network security service that changes public IP addresses and hides virtual locations to maintain data privacy on public networks like the internet.
-
 * **Mechanism:** Uses a server as a gateway to create a virtual tunnel that conceals IP addresses and encrypts data in transit.
 * **VPN Protocols:** Sets of rules or instructions that determine how secure network tunnels are formed and how data moves between network endpoints (computers, mobile devices, servers).
 
@@ -361,3 +360,78 @@
 
 * **Establishment & Adoption:** An older, highly established protocol supported by many operating systems, known for extensive security testing, widespread adoption, and robust packet authentication/encryption.
 * **Complexity:** More complex to configure compared to WireGuard, but favored by many clients due to its long history of enterprise use.
+
+---
+
+---
+
+# 📚Secure against network intrusions
+
+## ⚠️ Network Intrusions and System Compromises
+
+### 🕵️ Common Network Intrusion Vectors
+
+* **Network Interception Attacks:**
+  * Work by intercepting network traffic to steal valuable data or alter transmissions.
+  * **Packet Sniffing:** Attackers use hardware or software tools to capture and inspect data packets in transit.
+  * **Impact:** Allows unauthorized visibility and malicious code modifications, such as intercepting and altering bank transfer destination accounts.
+* **Backdoor Attacks:**
+  * Weaknesses intentionally left by programmers or administrators (for troubleshooting or administrative tasks) that bypass normal access control mechanisms.
+  * Attackers can also install backdoors post-compromise to maintain persistent access, enabling them to launch malware, perform Denial of Service (DoS) attacks, or steal data.
+
+### 💥 Possible Impacts on an Organization
+
+* **Financial Impact:**
+  * Taking systems offline via DoS or other tactics prevents revenue generation, costing companies millions in downtime.
+  * Incurs heavy expenses for software infrastructure reconstruction, ransomware payouts, and potential litigation/settlements if customer data is compromised.
+* **Reputational Damage:** Public awareness of a cyberattack can erode trust, causing customers and clients to abandon the organization for competitors.
+* **Public Safety Risks:**
+  * Particularly relevant to government and critical infrastructure networks (e.g., power grids, water systems, military defense communications).
+  * Compromises in these sectors can expose the public to physical harm and national security threats.
+
+
+## 🔍 Network Protocol Analyzers and `tcpdump`
+
+### 📊 Overview of Network Protocol Analyzers
+
+* **Definition:** Network protocol analyzers (packet sniffers or packet analyzers) are tools used to capture and analyze network data traffic, frequently deployed as investigative instruments to monitor networks and spot suspicious activity.
+* **Common Tools:** Popular analyzers include SolarWinds NetFlow Traffic Analyzer, ManageEngine OpManager, Azure Network Watcher, Wireshark, and `tcpdump`.
+* **Common Uses:** Used to capture network communications, collect performance statistics, establish traffic baselines, detect malicious traffic, create custom alerts, and locate unauthorized instant messaging or wireless access points.
+* **Dual-Use Risk:** Attackers can also maliciously use protocol analyzers to capture sensitive data packets containing plaintext information like usernames and passwords.
+
+### 💻 `tcpdump` Fundamentals
+
+* **Characteristics:** A command-line network protocol analyzer that is lightweight (low CPU and memory usage) and utilizes the open-source `libpcap` library.
+* **Compatibility:** Preinstalled on many Linux distributions and compatible with Unix-based operating systems and macOS.
+* **Output Format:** Converts network traffic information into human-readable formats directly in the terminal (and optionally to a log file).
+
+### 📑 Interpreting `tcpdump` Output
+
+* **Timestamp:** The precise time of capture formatted as hours, minutes, seconds, and fractions of a second.
+* **Source & Destination IP Addresses:** Identify the origin and final destination of the packet.
+* **Source & Destination Ports:** Show the specific ports utilized in the communications.
+* **Resolution Defaults:** By default, `tcpdump` attempts to resolve IP addresses to hostnames and maps port numbers to commonly associated services.
+
+![types of information presented in a tcpdump packet capture.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1791540432242&hmac=iS07Gbh4W8UaYl2TG5Yrj1usnq5sGYZ--rlLJw9cGAM)
+
+
+
+## ⚡ Real-Life Distributed Denial of Service (DDoS) Attacks
+
+### 🌐 Understanding DDoS and Volumetric Attacks
+
+* **Definition:** A Distributed Denial of Service (DDoS) attack is a malicious attempt to disrupt a target system, network, or website by flooding it with high volumes of traffic from multiple distributed, compromised systems (often referred to as a **botnet**)[cite: 1].
+* **Impact:** The overwhelming traffic volume leads to a denial of service for legitimate users, rendering the targeted service, website, or infrastructure completely inaccessible and causing significant financial and reputational damage[cite: 1].
+
+### 🏢 Case Study: The October 2016 DNS DDoS Attack
+
+* **Target & Mechanism:** On October 21, 2016, a major DNS service provider hosting DNS records for numerous prominent companies experienced a massive DDoS attack when a botnet flooded its servers with tens of millions of DNS requests starting at 7:00 a.m[cite: 1].
+* **Botnet Origin:** The botnet was originally created by university students who posted the code online to target gaming servers; cyber criminals later learned and used the code to remotely control the bots against the DNS service provider[cite: 1].
+* **Widespread Disruption:** The overwhelming traffic caused the DNS service to shut down, making all websites using the provider unreachable and triggering outages across North America and Europe[cite: 1].
+* **Mitigation:** The provider's systems were successfully restored after two hours of downtime, and subsequent waves of botnet attacks were effectively mitigated[cite: 1].
+
+### 🛡️ Defensive Takeaways
+
+* **Infrastructure Resilience:** The incident highlighted how critical core DNS infrastructure and service providers are to the availability of the internet, underscoring the need for robust DDoS protection and traffic mitigation[cite: 1].
+* **Dynamic Scaling:** Distributing important operations across hosts that can be dynamically scaled ensures that operations can continue even if baseline host infrastructure goes offline during an attack[cite: 1].
+* **Analyst Vigilance:** Security analysts must implement concrete mitigation strategies and monitor network operations to protect organizations against the devastating financial and reputational impacts of DDoS attacks[cite: 1].
