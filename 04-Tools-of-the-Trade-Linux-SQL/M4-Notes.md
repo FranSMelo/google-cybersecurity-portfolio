@@ -350,3 +350,322 @@ Using variations of the `ls` command allows security analysts to investigate own
   * `chmod u+rwx,g+rwx,o+rwx login_sessions.txt` (Adds all permissions to all owner categories).
   * `chmod g-rw bonuses.txt` (Removes read and write permissions from the group category to enforce the principle of least privilege).
   * *Note:* Separate multiple owner changes with commas and avoid spaces after commas.
+
+## 🔑User/Group Management
+
+### 🛡️ Responsible Use of `sudo`
+
+* **The Root User:** Also known as the "super user," the root account has full administrative control over the system. Logging in directly as root is discouraged due to security risks if compromised, the potential for irreversible mistakes, and the inability to track specific user actions.
+* **The `sudo` Command:** Stands for "super user do." It temporarily grants elevated permissions to authorized users, allowing them to perform administrative tasks without operating as the root user continuously.
+* **The Master Key Analogy:** Using `sudo` is comparable to a hotel employee using a master key card. While necessary for maintenance tasks, if a bad actor gains access to that master key/credentials, they gain broad access to the entire system.
+* **Best Practices:**
+
+  * Only grant `sudo` privileges to users who strictly require them.
+  * Exercise caution when copying commands from online sources to avoid accidentally executing unintended actions with elevated rights.
+
+### 👤 Authentication and Authorization Management Commands
+
+Managing user accounts, groups, and permissions requires administrative privileges executed via `sudo`:
+
+#### ➕ `useradd`
+
+* **Function:** Adds a new user account to the system.
+* **Key Options:**
+  * **`-g`:** Sets the user's primary default group (e.g., `sudo useradd -g security fgarcia`).
+  * **`-G`:** Assigns one or more supplemental (secondary) groups (e.g., `sudo useradd -G finance,admin fgarcia`).
+
+#### ⚙️ `usermod`
+
+* **Function:** Modifies existing user accounts.
+* **Key Options:**
+  * **`-g`:** Changes an existing user's primary group (e.g., `sudo usermod -g executive fgarcia`).
+  * **`-a -G`:** Appends a supplemental group to an existing user **without** replacing current secondary groups. *(Caution: Omitting `-a` causes `-G` to overwrite all existing supplemental groups).*
+  * **`-d`:** Changes the user's home directory path (e.g., `sudo usermod -d /home/garcia_f fgarcia`).
+  * **`-l`:** Changes the user's login name.
+  * **`-L`:** Locks an account to prevent login while preserving the user's files and permissions for auditing or ownership reassignment.
+
+#### ❌ `userdel`
+
+* **Function:** Deletes a user account from the system.
+* **Key Options:**
+  * **`-r`:** Deletes both the user account and all files within their home directory. *(Always ensure backups exist before using this option).*
+
+#### 🏷️ `chown`
+
+* **Function:** Changes the user or group ownership of a file or directory.
+* **Syntax Examples:**
+  * Change user owner: `sudo chown fgarcia access.txt`
+  * Change group owner (note the required colon prefix): `sudo chown :security access.txt`
+
+## 🐧 Linux Support Resources and Community
+
+### 🌐 The Linux Community & External Resources
+
+* **Global Online Community:** A massive resource for Linux users and security analysts at all levels, where troubleshooting via web searches helps uncover real-world solutions and best practices.
+* **UNIX and Linux Stack Exchange:** A trusted, community-driven Q&A website dedicated to Unix and Linux topics. Community voting ensures high-quality, accurate answers appear at the top for effective troubleshooting.
+
+### 🛠️ Integrated Linux Support Commands
+
+Linux includes built-in command-line tools to provide immediate documentation and syntax support without needing an external browser:
+
+* **`man` (Manual):** Displays detailed documentation and usage manuals for any command (e.g., `man chown`). The resulting output is commonly referred to as a "man page."
+* **`apropos`:** Searches through man page descriptions for specific keywords or strings.
+  * *Option:* Use `-a` to search for multiple words simultaneously (e.g., `apropos -a graph editor` finds man pages containing both terms).
+* **`whatis`:** Displays a concise, single-line description of a command. Ideal for a quick syntax reminder or identifying an unfamiliar command discovered through online sources or colleagues.
+
+---
+
+---
+
+# 📚Databases and SQL
+
+## 📊 SQL Filtering vs. Linux Filtering
+
+### 🗄️ Accessing SQL
+
+* **Command-Line Access:** SQL can be accessed and interacted with directly from the Linux command-line interface.
+* **Example:** Entering `sqlite3` launches SQLite in the terminal, redirecting subsequent commands to the SQL engine rather than the Linux shell.
+
+### ⚖️ Key Differences: Linux vs. SQL Filtering
+
+While both tools enable data filtering, they differ fundamentally in design, structure, and application:
+
+* **Purpose:**
+  * **Linux:** Filters data in the context of file systems, directories, permissions, and system processes.
+  * **SQL:** Filters data within a database management system (DBMS), querying and manipulating structured data stored in rows and tables.
+* **Syntax:**
+  * **Linux:** Uses various specialized command-line utilities and options (e.g., `grep`, `find`, `sed`, `cut`).
+  * **SQL:** Uses a standardized query language with specific keywords and clauses (e.g., `SELECT`, `WHERE`, `JOIN`).
+* **Structure:**
+  * **Linux:** Free-form and less organized, typically processing raw lines of text (making individual column extraction more complex).
+  * **SQL:** Highly structured with data separated into clear rows and columns, making records easy to read, filter, and adjust.
+* **Joining Tables:**
+  * **SQL:** Allows analysts to join multiple tables together to combine related information across datasets.
+  * **Linux:** Lacks native relational database joining capabilities to connect disparate computer files or system data.
+
+### 🎯 Best Uses in Cybersecurity
+
+* **When to use SQL:** Ideal when cybersecurity data is already stored in a structured database format that supports complex queries and relational joins.
+* **When to use Linux:** Essential when security logs or data are stored in unstructured plain text files that are incompatible with database management systems.
+
+---
+
+## 🗄️ Querying a Database with SQL
+
+### 🌐 The Chinook Database & Basic Query Structure
+
+* **The Chinook Database:** A ready-made sample database (simulating a digital media company) used throughout the course for querying practice. It allows learners to practice writing queries immediately without needing to build complex databases from scratch.
+* **Essential Query Keywords:** Every basic SQL query relies on two core keywords:
+
+  * **`SELECT`:** Indicates which columns to return.
+  * **`FROM`:** Indicates which table to query.
+* **Query Syntax Example:**
+
+  ```sql
+  SELECT customerid, city, country
+  FROM customers;
+  ```
+
+  * *Note:* Queries end with a semicolon (`;`). Line breaks are optional and used primarily to improve readability.
+
+### 🔍 Core SQL Query Components
+
+* **`SELECT` Keyword:**
+  * Specifies specific columns by separating their names with commas (e.g., `SELECT customerid, city`).
+  * **Wildcard (`*`):** Using `SELECT *` returns all columns in a table. *Caution:* Avoid using `*` on massive production databases as it can severely impact performance and output readability.
+* **`FROM` Keyword:**
+  * Placed after the `SELECT` clause to define the source table being queried.
+
+### 📊 Organizing and Sorting Output with `ORDER BY`
+
+* **`ORDER BY`:** Sequences the records returned by a query based on specified columns.
+* **Ascending Order (Default):**
+  * Numbers are sorted from smallest to largest.
+  * Text is sorted alphabetically from A to Z.
+* **Descending Order (`DESC`):**
+  * Adding the `DESC` keyword after the column name reverses the sort order (largest to smallest, or Z to A).
+  * *Example:* `ORDER BY city DESC;` lists cities from the end of the alphabet first.
+* **Multi-Column Sorting:**
+  * You can sort by multiple columns to create a hierarchical ordering.
+  * *Example:* `ORDER BY country, city;` sorts the primary output by country, and then sorts rows sharing the same country alphabetically by city.
+
+--
+
+## 🔍 The `WHERE` Clause and Basic SQL Operators
+
+### 🎯 The Importance of Filtering in Cybersecurity
+
+* **Handling Large Datasets:** Security analysts frequently process massive, complex log files and databases. Filtering allows them to pinpoint critical information quickly.
+* **Security Use Cases:**
+  * Isolating login attempts for a specific compromised user.
+  * Identifying specific timestamps during a security incident.
+  * Querying devices running a vulnerable version of an application.
+
+### 🛠️ The `WHERE` Clause
+
+* **Function:** Specifies the condition for filtering data in a query.
+* **Placement:** Positioned after the `FROM` clause, with the terminating semicolon (`;`) placed at the very end of the filter statement.
+* **Basic Syntax Example:**
+
+  ```sql
+  SELECT firstname, lastname, title, email
+  FROM employees
+  WHERE title = 'IT Staff';
+  ```
+
+  * *Note:* Uses standard operators like the equals sign (`=`) to match exact criteria.
+
+### 🧩 Pattern Matching with `LIKE` and Wildcards
+
+When searching for flexible patterns (such as prefixes, suffixes, or character lengths) rather than exact matches, you combine the `WHERE` clause with the **`LIKE`** operator and wildcards.
+
+#### 🎴 SQL Wildcards
+
+* **Percentage Sign (`%`):** Substitutes for zero, one, or any number of characters.
+* **Underscore (`_`):** Substitutes for exactly **one** single character.
+
+#### 📋 Wildcard Pattern Reference Table
+
+| Pattern   | Meaning / Example Results                                                             |
+| :-------- | :------------------------------------------------------------------------------------ |
+| `'a%'`  | Starts with 'a' (e.g.,`apple123`, `art`, `a`)                                   |
+| `'a_'`  | Starts with 'a' followed by exactly one character (e.g.,`as`, `an`, `a7`)       |
+| `'a__'` | Starts with 'a' followed by exactly two characters (e.g.,`ant`, `add`, `a1c`)   |
+| `'%a'`  | Ends with 'a' (e.g.,`pizza`, `Z6ra`, `a`)                                       |
+| `'_a'`  | Exactly two characters long, ending with 'a' (e.g.,`ma`, `1a`, `Ha`)            |
+| `'%a%'` | Contains 'a' anywhere in the string (e.g.,`Again`, `back`, `a`)                 |
+| `'_a_'` | Exactly three characters long with 'a' in the middle (e.g.,`Car`, `ban`, `ea7`) |
+
+#### ⚡ Using the `LIKE` Operator
+
+* Replaces the equals sign (`=`) to enable pattern-based searches.
+* **Example (Prefix Match using `%`):**
+
+  ```sql
+  SELECT lastname, firstname, title, email
+  FROM employees
+  WHERE title LIKE 'IT%';
+  ```
+
+  * *Result:* Returns any records where the title starts with "IT" (matching both "IT Staff" and "IT Manager").
+* **Example (Exact-Length Pattern using `_`):**
+
+  ```sql
+  SELECT firstname, lastname, state, country
+  FROM customers
+  WHERE state LIKE 'N_';
+  ```
+
+  * *Result:* Returns records where the state abbreviation starts with 'N' and has exactly one following character (e.g., `NY`, `NV`, `NS`, `NT`).
+
+---
+
+## 📈Operators for Filtering Dates and Numbers in SQL
+
+Security analysts frequently process diverse data types to investigate incidents, audit logs, and monitor systems:
+
+* **Numeric Data:** Numbers such as login attempt counts, log entry frequencies, or data volume transferred to/from sources and destinations.
+* **Date and Time Data:** Timestamps, login dates, system patch dates, and connection durations.
+
+### ⚖️ SQL Comparison Operators
+
+When filtering numeric and date/time data in a `WHERE` clause, comparison operators ensure queries return only the precise rows required:
+
+| Operator         | Description              | Inclusivity / Behavior                              |
+| :--------------- | :----------------------- | :-------------------------------------------------- |
+| `<`            | Less than                | **Exclusive** (excludes the comparison value) |
+| `>`            | Greater than             | **Exclusive** (excludes the comparison value) |
+| `=`            | Equal to                 | Matches exact value                                 |
+| `<=`           | Less than or equal to    | **Inclusive** (includes the comparison value) |
+| `>=`           | Greater than or equal to | **Inclusive** (includes the comparison value) |
+| `<>` or `!=` | Not equal to             | Excludes matching values                            |
+
+#### 🔍 Example: Date Filtering
+
+```sql
+SELECT firstname, lastname, birthdate
+FROM employees
+WHERE birthdate > '1970-01-01';
+```
+
+* *Result:* Returns employees born strictly *after* January 1, 1970 (exclusive). Using `>=` would include employees born on that exact date.
+
+### 📏 Range Filtering with `BETWEEN`
+
+* **Function:** The `BETWEEN` operator is used to filter numeric, date, or time values falling within a specific range.
+* **Inclusivity:** The `BETWEEN` operator is **inclusive**, meaning the start and end values of the range are included in the results.
+* **Syntax Example:**
+
+```sql
+SELECT firstname, lastname, hiredate
+FROM employees
+WHERE hiredate BETWEEN '2002-01-01' AND '2003-01-01';
+```
+
+* *Result:* Returns employees hired between January 1, 2002, and January 1, 2003 (inclusive of both boundary dates).
+
+## 🔀 Advanced SQL Filtering with Logical Operators (`AND`, `OR`, `NOT`)
+
+Logical operators enable security analysts to build precise, multi-variable filters in their SQL queries to isolate exact records of interest from massive datasets.
+
+### 🤝 The `AND` Operator
+
+* **Function:** Filters results based on  **two or more conditions** , requiring **all** specified conditions to be met simultaneously.
+* **Syntax Example:**
+  **SQL**
+
+  ```SQL
+  SELECT firstname, lastname, email, country, supportrepid
+  FROM customers
+  WHERE supportrepid = 5 AND country = 'USA';
+  ```
+
+  * *Result:* Returns only customer records that are handled by support rep ID 5 **and** are located in the USA.
+
+### 🔀 The `OR` Operator
+
+* **Function:** Filters results where **at least one** of the connected conditions is met (either the first, the second, or both).
+* **Syntax Example:**
+
+  ```SQL
+  SELECT firstname, lastname, email, country
+  FROM customers
+  WHERE country = 'Canada' OR country = 'USA';
+  ```
+
+  * *Result:* Returns all customers located in either Canada **or** the USA.
+  * *Note:* When evaluating multiple values for the same column using `OR`, you must write out the full condition for each side (e.g., `country = 'Canada' OR country = 'USA'`).
+
+### 🚫 The `NOT` Operator
+
+* **Function:** Negates a  **single condition** , instructing SQL to return all records that do *not* match the specified criteria.
+* **Syntax Example:**
+
+  ```SQL
+  SELECT firstname, lastname, email, country
+  FROM customers
+  WHERE NOT country = 'USA';
+  ```
+
+  * *Result:* Returns all customer records where the country is anything other than the USA.
+* **Alternative Operators:** Inequality operators like `<>` or `!=` achieve the exact same result (e.g., `WHERE country <> 'USA'`).
+
+### 🧩 Combining Logical Operators
+
+* **Function:** Multiple logical operators can be combined in a single `WHERE` clause to create highly specific and complex queries.
+* **Syntax Example:**
+
+  ```SQL
+  SELECT firstname, lastname, email, country
+  FROM customers
+  WHERE NOT country = 'Canada' AND NOT country = 'USA';
+  ```
+
+  * *Result:* Returns customer records from all countries *except* Canada and the USA.
+
+#### 📋Notes
+
+* **`AND`:** Requires all connected conditions to be true.
+* **`OR`:** Requires at least one connected condition to be true.
+* **`NOT`:** Negates a condition to exclude specific matches.
+* Combining these operators allows security analysts to target precise log entries, user accounts, or customer records during security investigations.
