@@ -669,3 +669,101 @@ Logical operators enable security analysts to build precise, multi-variable filt
 * **`OR`:** Requires at least one connected condition to be true.
 * **`NOT`:** Negates a condition to exclude specific matches.
 * Combining these operators allows security analysts to target precise log entries, user accounts, or customer records during security investigations.
+
+## 🔗 SQL Joins and Table Relationships
+
+* SQL joins allow analysts to combine data from multiple tables when those tables share a common column.
+* Different types of joins return different combinations of rows from the tables being joined.
+
+---
+
+### 🎯 Inner Joins (`INNER JOIN`)
+
+* **Function:** Returns only the rows that have matching values in the specified column across all joined tables.
+* **Behavior with `SELECT *`:** Returns all specified columns from both tables; if a column name exists in both tables, it will appear twice in the output.
+* **Syntax Example:**
+  ```sql
+  SELECT *
+  FROM employees
+  INNER JOIN machines ON employees.device_id = machines.device_id;
+  ```
+* **Table Placement:** The left table is placed after `FROM`, and the right table is placed after `INNER JOIN`.
+* **Qualifying Ambiguous Columns:** When a column name exists in multiple tables (such as `device_id`), you must prefix it with the table name (e.g., `employees.device_id`) to avoid ambiguity.
+
+### 🌐 Outer Joins
+
+Outer joins expand query results beyond exact matches by retaining all records from one or both tables.
+
+#### ⬅️ Left Joins (`LEFT JOIN`)
+
+* **Function:** Returns all records from the first (left) table, but only returns rows from the second (right) table that have a matching value in the specified column.
+* **Syntax Example:**
+  ```sql
+  SELECT *
+  FROM employees
+  LEFT JOIN machines ON employees.device_id = machines.device_id;
+  ```
+
+#### ➡️ Right Joins (`RIGHT JOIN`)
+
+* **Function:** Returns all records from the second (right) table, but only returns rows from the first (left) table that match on the specified column.
+* **Syntax Example:**
+  ```sql
+  SELECT *
+  FROM employees
+  RIGHT JOIN machines ON employees.device_id = machines.device_id;
+  ```
+* **Table Order Interchangeability:** You can achieve identical results to a `RIGHT JOIN` by using a `LEFT JOIN` and swapping the order of the tables.
+
+#### 🔀 Full Outer Joins (`FULL OUTER JOIN`)
+
+* **Function:** Returns all records from both tables, effectively merging the datasets completely.
+* **Syntax Example:**
+  ```sql
+  SELECT *
+  FROM employees
+  FULL OUTER JOIN machines ON employees.device_id = machines.device_id;
+  ```
+* *Note:* Similar to inner joins, the order of tables does not alter the final output of a full outer join.
+
+### 📋Notes
+
+* **`INNER JOIN`:** Returns only records with matching values in both tables.
+* **`LEFT JOIN`:** Returns all records from the left table and matching records from the right table.
+* **`RIGHT JOIN`:** Returns all records from the right table and matching records from the left table.
+* **`FULL OUTER JOIN`:** Returns all records from both tables regardless of matches.
+
+![Master SQL JOIN Operations: Your Complete Guide to Database Table  Relationships | by JIN | Dev Genius](https://miro.medium.com/0*WVRM40nLnJCf0YWa.png)
+
+## 📈 Aggregate Functions and Continuous Learning in SQL
+
+### 🧮 Aggregate Functions
+
+* **Definition:** Functions in SQL that perform calculations over multiple data points and return a single summary result instead of the raw data rows.
+* **Core Aggregate Functions:**
+  * **`COUNT()`:** Returns the total number of rows returned by a query (excluding `NULL` values).
+  * **`AVG()`:** Returns the mathematical average of numerical data within a column.
+  * **`SUM()`:** Returns the total sum of numerical data within a column.
+
+### 🛠️ Aggregate Function Syntax and Filtering
+
+* **Syntax Structure:** Placed directly after the `SELECT` keyword, enclosing the target column name inside parentheses.
+* **Syntax Example (Counting All Records):**
+
+  ```sql
+  SELECT COUNT(firstname)
+  FROM customers;
+  ```
+
+  * *Result:* Returns a single-row, single-column table containing the total row count.
+* **Combining with Filters (`WHERE`):** Aggregate functions can be combined with `WHERE` clauses to calculate metrics for specific subsets of data.
+
+  * *Syntax Example:*
+
+    ```sql
+    SELECT COUNT(firstname)
+    FROM customers
+    WHERE country = 'USA';
+    ```
+
+    * *Result:* Returns a count restricted only to customer records located in the USA.
