@@ -1,52 +1,129 @@
+# 📚 Introduction to Asset Security
 
-## Course 5 content
+## 🛡️ Risk, Threat, and Vulnerability Management in Cybersecurity
 
-Each course of this certificate program is broken into modules. You can complete courses at your own pace, but the module breakdowns are designed to help you finish the entire Google Cybersecurity Certificate in about six months.
+In cybersecurity, everyday terms take on precise technical definitions essential for incident response and defensive planning.
 
-What’s to come? Here’s a quick overview of the skills you’ll learn in each module of this course.
+### 📌 Core Definitions
 
-### **Module 1: Introduction to asset security**
+* **Risk:** Anything that can impact the confidentiality, integrity, or availability of an organizational asset.
+* **Threat:** Any circumstance or event with the potential to negatively impact assets.
+* **Vulnerability:** A weakness or flaw that can be exploited by a threat to cause harm.
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 1 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/SpqztdB_S_ObXtyoUmvedA_c80172e955884f40a70870fb98bfe0f1_cO_ReRMNThxDgIvJ7D7C30S7CoqiBIStqcJ0fHZQq_HEnhMmnxECthgup2S2eff5SyigkYw6vlSi6i5qPiBZhPCjJzxFYQxIHtXk7YyqBqIgy2C6SB97q7DxZzbHUyw_3K0dlReKbNeS05snmQhW1Ss?expiry=1791904414226&hmac=pzBIKb9GDnPuA7odzWbHuMhwrWlfvn5NvbvHFJBM_z4)
+### 🧮 Risk Equation and Management
 
-You will be introduced to how organizations determine what assets to protect. You'll learn about the connection between managing risk and classifying assets by exploring the unique challenge of securing physical and digital assets. You'll also be introduced to the National Institute of Standards and Technology (NIST) framework standards, guidelines, and best practices for managing cybersecurity risk.
+Risk is not absolute and varies depending on the criticality of each organization's assets. Risk assessment relies on the fundamental formula:
 
-### **Module 2: Protect organizational assets**
+$$
+\text{Risk} = \text{Likelihood} \times \text{Impact}
+$$
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 2 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/lZ8MS7o6Q1uRIV-Ib4SO1g_55a2992cc0084c399d1988fe251c21f1_41g2_0VrUyj0cOmP539egHboeQuLVbD-2ZJCVJF4mCiEpjMCxqzQHDievDLfJ-EdQvntYTR48CdQAIuQ0cmTTYIXSnRhWd4NovdXZR7dTIHgN6c44Yr_yfpjnRiCB_XUs07Dje7IimWhuGPFQ6pTrAQ?expiry=1791904414226&hmac=QYHrFvdBf5-FUtk078hCqbmRR22HWnDpKcWKCRKAwxA)
+* **Analyst Focus:** Although impact depends on the business context, a security team's daily work focuses on managing and reducing the **likelihood** of occurrence.
+* **Key Objectives:** Prevent costly incidents, prioritize critical assets, optimize systems, and define risk tolerance.
 
-You will focus on security controls that protect organizational assets. You'll explore how privacy impacts asset security and understand the role that encryption plays in maintaining the privacy of digital assets. You'll also explore how authentication and authorization systems help verify a user’s identity.
+### 🔍 Risk Factors: Threats vs. Vulnerabilities
 
-### **Module 3: Vulnerabilities in systems**
+Risk materializes when a threat successfully exploits an existing vulnerability.
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 3 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vj6PsvgSSxKRakVNVhBCFw_c7c238ec6ae44f199eacf0333d82a3f1_tQYQq8MKk5JqQ49egqooschVaA5d3yG3QoMEcy8iRSNahW6iJXRezwQf9fWqq8NSmBEVLxUNyiE3VR9m5srnTJpAPIcfE7BSO_bbkDWCbvpCK55fYRpvK-5ipuJf9uFUqYzpeYd4nJ82WUn6j7VWuZk?expiry=1791904414225&hmac=nFfqrHy5jbrbvrBNGCVhL8I7sMbeqMBS5VhSP5dlTlQ)
+#### 1. Categories of Threats
 
-You will build an understanding of the vulnerability management process. You'll learn about common vulnerabilities and develop an attacker mindset by examining the ways vulnerabilities can become threats to asset security if they are exploited.
+* **Intentional:** Deliberate actions by malicious actors (e.g., an attacker exploiting a misconfigured application).
+* **Unintentional:** Accidental events or human errors (e.g., an employee inadvertently granting unauthorized access to a restricted area).
 
-### **Module 4: Threats to asset security**
+#### 2. Categories of Vulnerabilities
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 4 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/wo3EXijcQVCluaQFGetGrw_8175a0bbd60e4ed8bcdb03f59d69b9f1_mALsOa9bx8Zua1T41IOBnpU5a4pthdDvp73iHg_2RPcMr7b8_0epS0IXmnuuu4GfJzuYOq2-hU6NxSWfKcUBhqUMHC_1g-ffpFkgTV5vReVtM3sQm1WzYlXAKCRFl-a9HDWf7Iw6-KBWUBYo3l_mieg?expiry=1791904414226&hmac=2rROy4nOo3cm8V6Vf91PzyVujrJrBeZZxI7ZYPkgoKw)
+* **Technical:** Hardware, software flaws, or incorrect system configurations.
+* **Human:** Behavioral gaps or user lack of awareness (e.g., lost access cards or compromised credentials).
 
-Finally, you will explore common types of threats to digital asset security. You'll also examine the tools and techniques used by cybercriminals to target assets. In addition, you'll be introduced to the threat modeling process and learn ways security professionals stay ahead of security breaches.
+## 📦 Asset Classification and Security Requirements
 
-## What to expect
+### 📌 The Importance of Asset Management
 
-Each course offers many types of learning opportunities:
+* **Core Concept:** Asset management involves tracking assets and the risks that affect them, built on the principle that you can only protect what you know you have.
+* **Types of Protected Assets:**
+  * **Digital Assets:** Customer data, financial records, and databases.
+  * **Information Systems:** Networks, software, and systems that process data.
+  * **Physical Assets:** Facilities, equipment, and supplies.
+  * **Intangible Assets:** Brand reputation and intellectual property.
 
-* **Videos **led by Google instructors teach new concepts, introduce the use of relevant tools, offer career support, and provide inspirational personal stories.
-* **Readings **build on the topics discussed in the videos, introduce related concepts, share useful resources, and describe case studies.
-* **Connect with other learners**: If you have a question, chances are, you’re not alone. Visit Coursera’s private [Cybersecurity Community](http://www.coursera.support/s/group-invite?id=MEY5VkgwMDAwMDAwMWMxMEFB) to expand your network, discuss career journeys, and share experiences. Check out the [quick start guide](https://www.coursera.support/s/article/Community-Quick-Start-Guide).
-* **Self-review activities **and** labs **give you hands-on practice in applying the skills you are learning and allow you to assess your own work by comparing it to a completed example.
-* **Interactive plug-ins **encourage you to practice specific tasks and help you integrate knowledge you have gained in the course.
-* **In-video quizzes** help you check your comprehension as you progress through each video.
-* **Practice quizzes **allow you to check your understanding of key concepts and provide valuable feedback.
-* **Graded quizzes **demonstrate your understanding of the main concepts of a course. You must score 80% or higher on each graded quiz to obtain a certificate, and you can take a graded quiz multiple times to achieve a passing score.
+### 🏷️ Common Asset Classification Levels
 
-## Tips for success
+Asset classification labels assets based on their sensitivity and importance to an organization, helping prioritize security resources, reduce IT costs, and ensure legal compliance.
 
-* It is strongly recommended that you go through the items in each lesson in the order they appear because new information and concepts build on previous knowledge.
-* Participate in all learning opportunities to gain as much knowledge and experience as possible.
-* If something is confusing, don’t hesitate to replay a video, review a reading, or repeat a self-review activity.
-* Use the additional resources that are referenced in this course. They are designed to support your learning. You can find all of these resources in the [**Resources**](https://www.coursera.org/learn/assets-threats-and-vulnerabilities/resources/4ypPt) tab.
-* When you encounter useful links in this course, bookmark them so you can refer to the information later for study or review.
-* Understand and follow the[ Coursera Code of Conduct](https://www.coursera.support/s/article/208280036-Coursera-Code-of-Conduct?) to ensure that the learning community remains a welcoming, friendly, and supportive place for all members.
+| Classification Level    | Description and Impact                                                       |
+| :---------------------- | :--------------------------------------------------------------------------- |
+| **Restricted**    | Highest level of sensitivity, reserved for need-to-know information.         |
+| **Confidential**  | Disclosure may lead to a significant negative impact on the organization.    |
+| **Internal-only** | Assets available to employees and authorized business partners.              |
+| **Public**        | Lowest level; release carries no negative consequences for the organization. |
+
+*Note:* Government and public sector organizations often label their most sensitive assets as "Confidential" rather than "Restricted".
+
+### 🧩 Challenges in Classifying Information
+
+* **Determining Ownership:** Identifying asset owners can be tricky, especially when company-issued laptops hold both corporate data and personal user files.
+* **Overlapping Classification Levels:** Information can hold multiple sensitivity levels simultaneously (e.g., a person's name is public, but their street address is confidential).
+
+---
+
+## ☁️ The Emergence of Cloud Security
+
+* **Definition:** The UK National Cyber Security Centre defines cloud computing as an on-demand, massively scalable service hosted on shared infrastructure and accessible via the internet.
+* **Impact:** Modern cloud technology has lowered barriers to entry for digital businesses, enabling rapid scaling, flexibility, and cost reduction compared to traditional on-premises setups.
+
+### 🛠️ Categories of Cloud-Based Services
+
+Cloud services operate across three primary service models, transferring varying degrees of management responsibility between client and provider:
+
+| Service Model                                | Description                                                                                                     | Primary Use Case / Examples                     |
+| :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
+| **Software as a Service (SaaS)**       | Front-end applications hosted and fully managed by the provider; accessible via web browser.                    | Gmail, Slack, Zoom                              |
+| **Platform as a Service (PaaS)**       | Online development environments and back-end tools allowing developers to write, build, and deploy custom apps. | Google App Engine, Heroku, VMware Cloud Foundry |
+| **Infrastructure as a Service (IaaS)** | Remote, on-demand access to virtualized computing hardware, storage, processing, and networking.                | Google Cloud Platform, Microsoft Azure          |
+
+### 🤝 The Shared Responsibility Model
+
+Moving to the cloud shifts traditional security boundaries from single internal teams to a shared security framework between provider and customer:
+
+* **Cloud Service Provider (CSP):** Secures underlying infrastructure, physical hardware, core hypervisors, and data centers.
+* **Customer / Client:** Responsible for securing elements directly within their operational control:
+  * **Identity & Access Management (IAM)**
+  * **Resource Configurations**
+  * **Data Governance & Handling**
+* *Note:* The exact distribution of responsibility varies depending on whether SaaS, PaaS, or IaaS is deployed.
+
+### ⚠️ Key Cloud Security Challenges
+
+* **Misconfiguration:** The single largest operational vulnerability; default or poorly implemented settings leave exposed access points.
+* **Cloud-Native Breaches:** Attacks specifically targeting poorly configured cloud services or exposed storage buckets.
+* **Visibility & Access Monitoring:** Tracking real-time usage and access rights can be complex across multi-tenant environments.
+* **Regulatory Compliance:** Ensuring data storage and transmission comply with legal and industry frameworks (e.g., HIPAA, PCI DSS, GDPR).
+
+---
+
+## 🏛️ NIST Cybersecurity Framework (CSF) Implementation
+
+* **Background:** Originally released in 2014 by the National Institute of Standards and Technology (NIST) to safeguard U.S. critical infrastructure.
+* **Scope:** Adapted for public and private organizations of all sizes, providing an unbiased, flexible, and scalable resource for entities lacking dedicated risk framework development resources.
+* **Nature:** A voluntary framework comprising standards, guidelines, and best practices to manage cybersecurity risk and support regulatory compliance.
+
+### 🧩 The Three Core Components
+
+The NIST CSF consists of three primary, interconnected components designed to improve organizational security posture:
+
+| Component          | Description                                                                                                                                                                        | Operational Role                                                                                                                    |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| **Core**     | Desired cybersecurity outcomes organized across six functions:**Identify**, **Protect**, **Detect**, **Respond**, **Recover**, and **Govern**. | Serves as an informative reference to categorize assets, establish safeguards, detect threats, and execute response/recovery plans. |
+| **Tiers**    | Measured on a scale from **1 to 4** (Tier 1 being the lowest level of implementation maturity).                                                                             | Evaluates program sophistication, assesses security posture, and identifies areas for control improvements.                         |
+| **Profiles** | Expert-designed templates tailored to specific risk profiles, industries, or organizational needs.                                                                                 | Establishes operational baselines and enables comparison between current posture and target industry standards.                     |
+
+*Note:* The **Govern** function was added to the Core in February 2024 to emphasize the role of executive leadership and decision-making in risk management.
+
+### ⚙️ CISA Implementation Process
+
+Implementing the CSF can be complex due to its depth. The U.S. Cybersecurity and Infrastructure Security Agency (CISA) recommends a structured four-step lifecycle:
+
+1. **Create a Profile:** Develop a current-state operational profile outlining specific business requirements.
+2. **Perform Risk Assessments:** Identify operational gaps against business and regulatory compliance standards.
+3. **Analyze and Prioritize Gaps:** Evaluate security deficiencies based on current threat, risk, and vulnerability trends.
+4. **Execute Action Plan:** Implement targeted mitigation plans to achieve target-state security objectives
