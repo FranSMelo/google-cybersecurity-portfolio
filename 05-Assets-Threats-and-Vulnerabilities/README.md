@@ -1,29 +1,66 @@
-## Course 5 content
+# 🛡️ Course 5: Assets, Threats, and Vulnerabilities
 
-Each course of this certificate program is broken into modules. You can complete courses at your own pace, but the module breakdowns are designed to help you finish the entire Google Cybersecurity Certificate in about six months.
+<p align="center">
+  <img src="https://img.shields.io/badge/Google_Cybersecurity-Course_5-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Cybersecurity Professional Certificate — Course 5"/>
+  <img src="https://img.shields.io/badge/Focus-Asset_Security_%7C_Threat_Modeling-0077B6?style=for-the-badge" alt="Focus: Asset Security and Threat Modeling"/>
+</p>
 
-What’s to come? Here’s a quick overview of the skills you’ll learn in each module of this course.
+## 📌 Course Overview
 
-### **Module 1: Introduction to asset security**
+**Assets, Threats, and Vulnerabilities** explores how cybersecurity professionals identify and classify organizational assets, assess the risks affecting them, and select safeguards to protect them. The course develops an attacker mindset while connecting asset security to vulnerability management, access controls, data privacy, and threat modeling.
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 1 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/SpqztdB_S_ObXtyoUmvedA_c80172e955884f40a70870fb98bfe0f1_cO_ReRMNThxDgIvJ7D7C30S7CoqiBIStqcJ0fHZQq_HEnhMmnxECthgup2S2eff5SyigkYw6vlSi6i5qPiBZhPCjJzxFYQxIHtXk7YyqBqIgy2C6SB97q7DxZzbHUyw_3K0dlReKbNeS05snmQhW1Ss?expiry=1791904414226&hmac=pzBIKb9GDnPuA7odzWbHuMhwrWlfvn5NvbvHFJBM_z4)
+This section of my portfolio combines course notes with practical assessments and incident analyses. The exercises apply security concepts to scenarios involving a home network, a commercial bank, an exposed e-commerce database, a mobile marketplace, unauthorized payroll activity, data exposure, and USB baiting.
 
-You will be introduced to how organizations determine what assets to protect. You'll learn about the connection between managing risk and classifying assets by exploring the unique challenge of securing physical and digital assets. You'll also be introduced to the National Institute of Standards and Technology (NIST) framework standards, guidelines, and best practices for managing cybersecurity risk.
+## 🎯 What I Learned
 
-### **Module 2: Protect organizational assets**
+- **Identify and classify assets:** Build inventories of physical and digital assets and classify them according to sensitivity, importance, and access requirements.
+- **Assess risk:** Analyze how threats may exploit vulnerabilities, estimate likelihood and impact, and use risk scores to prioritize remediation.
+- **Protect organizational assets:** Apply least privilege, role-based access control (RBAC), authentication, authorization, encryption, and data segregation.
+- **Manage data securely:** Understand data governance and the data lifecycle, from collection and storage through use, archiving, and destruction.
+- **Understand privacy requirements:** Recognize the importance of protecting PII, SPII, and PHI and consider relevant requirements such as GDPR, PCI DSS, and HIPAA.
+- **Assess vulnerabilities:** Examine system exposure, identify potential attack paths, and recommend controls that reduce the attack surface.
+- **Model threats:** Apply structured threat modeling, including the PASTA methodology, to connect business objectives, technical components, threats, vulnerabilities, and mitigations.
+- **Think like a threat actor:** Consider how social engineering, credential misuse, misconfiguration, and insecure access could put assets at risk.
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 2 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/lZ8MS7o6Q1uRIV-Ib4SO1g_55a2992cc0084c399d1988fe251c21f1_41g2_0VrUyj0cOmP539egHboeQuLVbD-2ZJCVJF4mCiEpjMCxqzQHDievDLfJ-EdQvntYTR48CdQAIuQ0cmTTYIXSnRhWd4NovdXZR7dTIHgN6c44Yr_yfpjnRiCB_XUs07Dje7IimWhuGPFQ6pTrAQ?expiry=1791904414226&hmac=QYHrFvdBf5-FUtk078hCqbmRR22HWnDpKcWKCRKAwxA)
+## 🧪 Practical Exercises & Assessments
 
-You will focus on security controls that protect organizational assets. You'll explore how privacy impacts asset security and understand the role that encryption plays in maintaining the privacy of digital assets. You'll also explore how authentication and authorization systems help verify a user’s identity.
+- Created a **home network asset inventory**, assigning sensitivity classifications and considering protection needs for connected devices.
+- Developed a **commercial bank risk register**, scoring risks such as business email compromise, exposed financial records, theft, and supply chain disruption.
+- Assessed an **e-commerce database exposed to the public internet**, using a NIST SP 800-30-based approach to evaluate risk and recommend network isolation, VPN access, least privilege, and monitoring.
+- Applied the **PASTA threat modeling methodology** to a sneaker marketplace mobile application, mapping attack paths such as SQL injection and session hijacking to defensive controls.
+- Investigated an **unauthorized payroll transaction**, identifying failures in account deprovisioning and excessive administrative privileges.
+- Analyzed a **data leak scenario** and recommended time-limited access, role-based permissions, and improved activity monitoring.
+- Evaluated a **USB baiting scenario**, identifying social engineering and data exposure risks and recommending user training and technical restrictions.
 
-### **Module 3: Vulnerabilities in systems**
+## 📄 Portfolio Deliverables
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 3 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vj6PsvgSSxKRakVNVhBCFw_c7c238ec6ae44f199eacf0333d82a3f1_tQYQq8MKk5JqQ49egqooschVaA5d3yG3QoMEcy8iRSNahW6iJXRezwQf9fWqq8NSmBEVLxUNyiE3VR9m5srnTJpAPIcfE7BSO_bbkDWCbvpCK55fYRpvK-5ipuJf9uFUqYzpeYd4nJ82WUn6j7VWuZk?expiry=1791904414225&hmac=nFfqrHy5jbrbvrBNGCVhL8I7sMbeqMBS5VhSP5dlTlQ)
+| Resource                                                                       | Description                                                                                                                  |
+| :----------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| [Course Notes](M5-Notes.md)                                                     | Study notes covering asset security, risk, access controls, data governance, vulnerabilities, threats, and related concepts. |
+| [Asset Classification](classify-assets-portfolio.md)                            | Home network asset inventory, sensitivity classifications, and security considerations.                                      |
+| [Risk Register](risk-register-portfolio.md)                                     | Commercial bank risk analysis, scoring methodology, priorities, and mitigation focus.                                        |
+| [Vulnerability Assessment Report](vulnerability-assessment-report-portfolio.md) | Risk assessment of an internet-exposed e-commerce database with recommended remediations.                                    |
+| [PASTA Threat Model](PASTA-workesheet.md)                                       | Seven-stage threat modeling assessment for a sneaker marketplace mobile application.                                         |
+| [Access Control Investigation](access-control-portfolio.md)                     | Payroll incident analysis focused on account lifecycle management and least privilege.                                       |
+| [Data Leak Analysis](Data-leak-portfolio.md)                                    | Assessment of accidental external exposure and recommendations aligned with NIST SP 800-53 AC-6.                             |
+| [USB Baiting Analysis](parking-usb-portfolio.md)                                | Physical social engineering risk assessment and layered mitigation recommendations.                                          |
 
-You will build an understanding of the vulnerability management process. You'll learn about common vulnerabilities and develop an attacker mindset by examining the ways vulnerabilities can become threats to asset security if they are exploited.
+## 🗂️ Folder Contents
 
-### **Module 4: Threats to asset security**
+```text
+05-Assets-Threats-and-Vulnerabilities/
+├── README.md
+├── M5-Notes.md
+├── classify-assets-portfolio.md
+├── risk-register-portfolio.md
+├── vulnerability-assessment-report-portfolio.md
+├── PASTA-workesheet.md
+├── access-control-portfolio.md
+├── Data-leak-portfolio.md
+├── parking-usb-portfolio.md
+└── image/
+```
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 4 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/wo3EXijcQVCluaQFGetGrw_8175a0bbd60e4ed8bcdb03f59d69b9f1_mALsOa9bx8Zua1T41IOBnpU5a4pthdDvp73iHg_2RPcMr7b8_0epS0IXmnuuu4GfJzuYOq2-hU6NxSWfKcUBhqUMHC_1g-ffpFkgTV5vReVtM3sQm1WzYlXAKCRFl-a9HDWf7Iw6-KBWUBYo3l_mieg?expiry=1791904414226&hmac=2rROy4nOo3cm8V6Vf91PzyVujrJrBeZZxI7ZYPkgoKw)
+## 💡 Key Takeaway
 
-Finally, you will explore common types of threats to digital asset security. You'll also examine the tools and techniques used by cybercriminals to target assets. In addition, you'll be introduced to the threat modeling process and learn ways security professionals stay ahead of security breaches.
+Protecting assets starts with knowing what an organization has and why it matters. By classifying assets, evaluating threats and vulnerabilities, and prioritizing risk-based controls, security teams can reduce exposure while protecting confidentiality, integrity, and availability.
