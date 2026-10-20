@@ -398,7 +398,6 @@ Cyber deception involves deliberate techniques designed to mislead malicious act
 * **Honeypots:** Active cyber defense decoys configured to mimic vulnerable systems, files, or network resources (e.g., a fake file labeled `Client Credit Card Information`).
 * **Operational Goal:** Tricking attackers into interacting with the decoy immediately triggers high-fidelity security alerts without risking genuine enterprise assets.
 
-
 ## 🔄 Ongoing Monitoring of CI/CD Pipelines
 
 ### 📌 Purpose and Core Concepts
@@ -438,7 +437,6 @@ Organizations deploy several automated techniques to capture, aggregate, and ana
 
 * **Performance Monitoring:** Tracks resource utilization to uncover Indicators of Attack (IoAs) like sudden server slowdowns or resource starvation.
 * **Continuous Vulnerability Scanning:** Proactively audits CI/CD infrastructure tools, plugins, and containers for unpatched Common Vulnerabilities and Exposures (CVEs).
-
 
 ## 🛑 Indicators of Compromise (IoCs) & The Pyramid of Pain
 
@@ -480,7 +478,6 @@ Created by security researcher David J. Bianco, the **Pyramid of Pain** maps out
    * The behavioral playbook of the threat actor (Tactics describe high-level behavior, Techniques describe operational methods, and Procedures describe exact execution steps).
    * *Attacker Impact:* Devastating to block. Because TTPs represent *how* an adversary operates rather than just what they use, detection at this level forces a complete operational overhaul.
 
-
 ## 🔬 Analyzing Indicators of Compromise with Investigative Tools
 
 ### 📌 Contextualizing IoCs & The Power of Crowdsourcing
@@ -516,8 +513,6 @@ Beyond VirusTotal, security analysts leverage specialized OSINT tools to inspect
 * **MalwareBazaar:** A dedicated, community-driven repository for sourcing, downloading, and researching live malware samples.
 * **Jotti's Malware Scan:** A multi-engine online file scanner that evaluates suspicious binaries using various antivirus scanners.
 
-
-
 ## 📝 Best Practices for Effective Security Documentation
 
 ### 📌 Purpose and Core Benefits
@@ -536,5 +531,107 @@ Beyond VirusTotal, security analysts leverage specialized OSINT tools to inspect
 | **Be Concise**         | State the core purpose immediately at the beginning of the document. Use brief Executive Summaries at the start of long incident reports to allow leadership to quickly skim key findings.                                              |
 | **Update Regularly**   | Maintain live documentation by incorporating post-incident "lessons learned" and process improvements. Regularly audit policies, playbooks, and response plans to align with evolving threat landscapes and discovered vulnerabilities. |
 
+## ⚖️ The Alert Triage Process in Incident Response
 
-l
+### 📌 Core Concept & Operational Purpose
+
+* **Alert Triage:** The systematic process of evaluating, validating, and prioritizing incoming security alerts to allocate SOC resources effectively and mitigate high-severity threats before significant damage occurs.
+* **Primary Operational Objectives:**
+  * Prevent resource exhaustion by separating false positives from genuine security incidents.
+  * Standardize incident handling using repeatable workflows (such as playbooks).
+  * Ensure critical, high-impact threats receive immediate escalation and containment.
+
+### 🔄 Triage Process
+
+#### 1. Receive & Assess
+
+Upon receiving an alert from telemetry tools (such as an IDS or SIEM), the security analyst reviews and validates the alert by addressing key criteria:
+
+* **False Positive Validation:** Is the detected activity a benign anomaly or a genuine threat?
+* **Alert History & Context:** Has this alert fired previously, and how was it remediated?
+* **Known Vulnerability Mapping:** Is the alert tied to a known CVE or unpatched vulnerability in the environment?
+* **Initial Severity:** What is the preliminary severity score assigned by the detection engine?
+
+#### 2. Assign Priority
+
+Validated security incidents are prioritized based on their scope, business risk, and operational urgency using three core impact criteria:
+
+| Prioritization Factor        | Description & Security Focus                                                                                                                                                         |
+| :--------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Functional Impact**  | Evaluates how the incident disrupts ongoing IT services, critical infrastructure, and core business operations (e.g., ransomware encrypting active operational databases).           |
+| **Information Impact** | Measures the degree of compromise regarding data confidentiality, integrity, and availability (e.g., unauthorized exfiltration of sensitive PII or corporate secrets).               |
+| **Recoverability**     | Assesses the feasibility, time, and financial cost required to restore affected systems (e.g., determining if a system can be restored from backups vs. unrecoverable public leaks). |
+
+#### 3. Collect & Analyze
+
+The final phase involves a comprehensive investigation into the incident context:
+
+* Gathering artifacts and evidence from host endpoints, network traffic, and system logs.
+* Conducting external threat research and documenting all investigative findings.
+* Escalating complex or high-severity incidents to Tier 2 (L2) analysts or SOC Managers for advanced containment actions.
+
+## 🔄 Business Continuity Considerations & Recovery Strategies
+
+### 📌 Core Concepts: BCP vs. DRP
+
+* **Business Continuity Plan (BCP):** A structured document outlining procedures to sustain critical business operations during and immediately following a major security disruption or system outage.
+* **Disaster Recovery Plan (DRP):** Focuses specifically on restoring IT infrastructure, systems, and data repositories following catastrophic events, hardware failures, or natural disasters.
+* **Operational Objective:** Minimize operational downtime, mitigate financial loss, avoid legal liability, and protect organizational reputation during severe incidents (such as ransomware targeting critical infrastructure).
+
+### ⚡ Business Impact: Ransomware & Critical Infrastructure
+
+Ransomware attacks illustrate the vital necessity of business continuity planning:
+
+* **Healthcare Impact:** Encrypting electronic health records (EHR) prevents access to patient history, disabling essential care delivery and threatening public safety.
+* **Enterprise & National Risk:** Interruptions to critical infrastructure systems undermine economic security, operational availability, and public safety.
+* **BCP Role:** Provides alternative manual or failover workflows so essential business functions continue operating while technical remediation takes place.
+
+### 🏢 Site Resilience Strategies
+
+Organizations achieve site resilience—the capability to prepare for, adapt to, and recover from infrastructure failures, by maintaining secondary facilities:
+
+| Facility Type       | Operational Readiness & Capabilities                                                                                                                         | Activation Time                |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
+| **Hot Site**  | Fully operational, real-time duplicate of the primary environment equipped with mirrored data, active hardware, and network routing.                         | Immediate / Automated Failover |
+| **Warm Site** | Pre-configured environment with hardware and network connectivity established, but requiring recent data backups or final synchronization before going live. | Rapid (Hours to Days)          |
+| **Cold Site** | Secondary space with physical utilities and basic infrastructure, but lacking installed hardware, active network connections, or pre-loaded data.            | Delayed (Days to Weeks)        |
+
+
+
+
+## 📝 Post-Incident Review & The Final Phase of Incident Response
+
+### 📌 Purpose and Core Concepts
+
+* **Post-Incident Activity:** The final phase of the NIST Incident Response Lifecycle focused on conducting thorough reviews, capturing operational lessons learned, and updating organizational defenses to prevent future security events.
+* **Primary Focus:** Continuous process improvement, updating playbooks, closing coverage gaps, and strengthening security posture—not assigning blame.
+
+### 🤝 The Lessons Learned Meeting (Post-Mortem)
+
+A dedicated review meeting conducted with all involved stakeholders following major security incidents (e.g., ransomware attacks).
+
+* **Timing:** Must be scheduled no later than two weeks following successful incident remediation.
+* **Core Investigative Questions:**
+  * What happened and at what precise time did it occur?
+  * Who originally discovered the security event?
+  * How was the threat contained, and what specific recovery actions were executed?
+  * What could have been performed differently or improved during response efforts?
+* **Meeting Preparation & Roles:**
+  * **Agenda:** Distributed in advance to outline key discussion topics.
+  * **Moderator:** Facilitates discussions and ensures focused dialogue.
+  * **Scribe:** Formally records meeting notes, key findings, and action items.
+
+### 📑 The Incident Final Report
+
+A comprehensive formal document summarizing the end-to-end incident lifecycle, structured around the 5 W's of incident investigation: *Who, What, Where, Why, and When*.
+
+#### Key Components of a Final Report
+
+| Report Section              | Extracted Telemetry & Operational Content                                                                                    |
+| :-------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| **Executive Summary** | High-level, non-technical overview highlighting essential facts, key findings, and business impacts for leadership.          |
+| **Timeline**          | Chronological record detailing exact timestamps and the sequence of events leading up to and during the incident.            |
+| **Investigation**     | In-depth technical breakdown of detection and analysis steps, including forensic outputs (e.g., log files, packet captures). |
+| **Recommendations**   | Prioritized list of actionable countermeasures, playbook updates, and security control enhancements to prevent recurrence.   |
+
+-
