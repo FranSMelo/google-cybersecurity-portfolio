@@ -1,29 +1,52 @@
-# Course 6 content
+# 🚨 Course 6: Sound the Alarm: Detection and Response
 
-Each course of this certificate program is broken into modules. You can complete courses at your own pace, but the module breakdowns are designed to help you finish the entire Google Cybersecurity Certificate in about six months.
+## 📌 Course Overview
 
-What’s to come? Here’s a quick overview of the skills you’ll learn in each module of this course.
+**Sound the Alarm: Detection and Response** explores how cybersecurity teams monitor systems, identify suspicious activity, investigate security alerts, and respond to incidents. The course connects incident response frameworks and playbooks with practical analysis of network traffic, malware indicators, and security logs.
 
-### Module 1: Introduction to detection and incident response
+This section of my portfolio brings together course notes and practical investigations involving phishing, suspicious file hashes, packet analysis, incident handling, and post-incident review. The exercises demonstrate how structured analysis and clear documentation support timely, consistent security response.
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 1 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ITeg5fUrSgO-RfEO25rXiw_6b661962d9744550a86a6e25f098dcf1_Sound-R-115-1.png?expiry=1792502559778&hmac=JsSNsp7qWUz4kuyYeXTIQ5DCs0ozDCUI6MsdvP2R1mo)
+## 🎯 What I Learned
 
-You will be introduced to detection and incident response, and the steps involved in the incident response process. You'll also explore how cybersecurity professionals verify and respond to malicious threats.
+- **Follow the incident response lifecycle:** Understand the stages of preparation, detection and analysis, containment, eradication and recovery, and post-incident activity.
+- **Triage and escalate alerts:** Verify whether an alert is malicious, gather supporting evidence, document findings, and escalate incidents according to playbooks.
+- **Analyze network traffic:** Use protocol analyzers such as Wireshark and tcpdump to inspect packet captures, apply filters, and investigate suspicious communications.
+- **Evaluate indicators of compromise:** Use threat intelligence to review file hashes, domains, and IP addresses, and relate findings to attacker behaviors through the Pyramid of Pain.
+- **Understand SOC operations:** Explore how SOC analysts, incident handlers, and response teams coordinate investigations and communicate findings.
+- **Use IDS and SIEM data:** Understand how logs and alerts support monitoring, detection, investigation, and response.
+- **Document incidents effectively:** Record timelines, evidence, impact, response actions, and recommendations in incident reports and handler journals.
+- **Learn from incidents:** Review root causes and recommend improvements that reduce the likelihood and impact of future incidents.
 
-### Module 2: Network monitoring and analysis
+## 🧪 Practical Exercises & Investigations
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 2 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/PYlRQiYnQHqcsJJIREjglQ_03e4585d1cd64f84ac8e51f98f4472f1_Sound-R-115-2.png?expiry=1792502559778&hmac=Xj9tlkyhexvwreMdYm0zo_c9cTTf7ltQF9jd6khZ_cs)
+- Investigated a phishing alert involving a password-protected executable, reviewed threat-intelligence findings, and documented escalation to Tier 2.
+- Analyzed suspicious file-hash findings and mapped indicators to the Pyramid of Pain.
+- Compared Wireshark and tcpdump for packet capture and network protocol analysis.
+- Compared Nmap and Netcat, documenting their respective uses in authorized network security assessment and troubleshooting.
+- Maintained an incident handler journal covering ransomware, packet analysis, and phishing-related investigations.
+- Reviewed a customer data breach involving a forced-browsing vulnerability and documented response lessons and remediation recommendations.
 
-You will learn the importance of network monitoring, and how to understand network traffic. Then, you'll explore how to use network protocol analyzer tools, commonly referred to as packet sniffers. In particular, you'll sniff the network and analyze packets for malicious threats. You'll also craft filtering commands to analyze the contents of captured packets.
+## 📄 Portfolio Deliverables
 
-### Module 3: Incident investigation and response
+| Resource                                                                       | Description                                                                                                           |
+| :----------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| [Course Notes](M6-Notes.md)                                                     | Study notes on incident response, monitoring, network analysis, investigation, and detection tools.                   |
+| [Phishing Incident Report](phishing-incident-portfolio.md)                      | Alert A-2703 investigation, phishing evidence analysis, threat-intelligence validation, and escalation documentation. |
+| [Investigation Findings](Investigation-findings-portfolio.md)                   | VirusTotal findings and indicators of compromise organized using the Pyramid of Pain.                                 |
+| [Network Protocol Analyzer Comparison](Network-Protocol-Analyzers-portfolio.md) | Comparison of Wireshark and tcpdump, with additional notes on Nmap and Netcat.                                        |
+| [Incident Handler&#39;s Journal](Incident-handler-portfolio.md)                 | Structured incident journal with investigation entries, tools, and course reflections.                                |
+| [Final Incident Report](Final-report-portfolio.md)                              | Post-incident analysis of a customer data breach, including root cause, timeline, response, and recommendations.      |
 
-![Five icons show the course followed by the four modules sequentially from left to right with module 3 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/181vSXEkSSa_H2D1L3lPRA_0619ee3c16d44b1d8d5eefaa6efbe1f1_Sound-R-115-3.png?expiry=1792502559778&hmac=R9GApl8sZwZf9LhSDcXSLa-cuePbQSlNXd__jmguidc)
+## 🗂️ Folder Contents
 
-You will learn about the various processes and procedures in the stages of incident detection, investigation, analysis, and response. Then, you'll analyze the details of suspicious file hashes using investigative tools. You'll also learn about the importance of documentation, evidence collection, the triage process, and more.
-
-### Module 4: Network traffic and logs using IDS and SIEM tools
-
-![Five icons show the course followed by the four modules sequentially from left to right with module 4 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/NWZz4S3NT66nYIi51y6tUA_618ecb9c175144c88b7ee57dd301ebf1_Sound-R-115-4.png?expiry=1792502559778&hmac=b4iZcqAgIEEp_oKDKc4UDgg0GIbiMzxtbWYL0VFAEiQ)
-
-You will explore logs and their role in IDS and SIEM tools. You'll learn how these systems work to help cybersecurity teams monitor systems and detect malicious activity. You’ll also be introduced to some IDS and SIEM products, and practice using tools to perform queries.
+```text
+06-Sound-the-Alarm/
+├── README.md
+├── M6-Notes.md
+├── Final-report-portfolio.md
+├── Incident-handler-portfolio.md
+├── Investigation-findings-portfolio.md
+├── Network-Protocol-Analyzers-portfolio.md
+├── phishing-incident-portfolio.md
+└── image/
+```

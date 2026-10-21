@@ -596,9 +596,6 @@ Organizations achieve site resilience—the capability to prepare for, adapt to,
 | **Warm Site** | Pre-configured environment with hardware and network connectivity established, but requiring recent data backups or final synchronization before going live. | Rapid (Hours to Days)          |
 | **Cold Site** | Secondary space with physical utilities and basic infrastructure, but lacking installed hardware, active network connections, or pre-loaded data.            | Delayed (Days to Weeks)        |
 
-
-
-
 ## 📝 Post-Incident Review & The Final Phase of Incident Response
 
 ### 📌 Purpose and Core Concepts
@@ -634,4 +631,262 @@ A comprehensive formal document summarizing the end-to-end incident lifecycle, s
 | **Investigation**     | In-depth technical breakdown of detection and analysis steps, including forensic outputs (e.g., log files, packet captures). |
 | **Recommendations**   | Prioritized list of actionable countermeasures, playbook updates, and security control enhancements to prevent recurrence.   |
 
--
+---
+
+---
+
+# 📚 Network traffic and logs
+
+## 📜 Best Practices for Log Collection and Management
+
+* **Log Definition:** A chronological record of events occurring within an organization's systems, endpoints, or network infrastructure. Each log entry captures specific metadata corresponding to a single system event.
+* **Modern Security Purpose:** Evolves beyond basic operational troubleshooting to power centralized threat detection, forensic investigations, and the determination of the 5 W's of incident response (*Who, What, When, Where, and Why*).
+* **Logging Receivers (SIEM):** Centralized platforms that ingest, normalize, and correlate log streams from disparate data sources to provide unified operational visibility.
+
+### 🗂️ Primary Log Types & Telemetry Sources
+
+| Log Category                  | Source Infrastructure                           | Core Security Value & Event Examples                                                                   |
+| :---------------------------- | :---------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| **Network Logs**        | Firewalls, Routers, Switches, Proxies           | Tracks connection attempts, active sessions, port usage, and outbound network routing.                 |
+| **System Logs**         | OS (Windows, Linux, macOS, Chrome OS)           | Records kernel events, system service state changes, driver loads, and privilege escalations.          |
+| **Application Logs**    | Software applications, web services, databases  | Documents application-level activity, API requests, database queries, and internal application errors. |
+| **Security Logs**       | Antivirus, EDR, IDS/IPS platforms               | Records threat detection events, signature hits, policy violations, and unauthorized file deletions.   |
+| **Authentication Logs** | Identity Providers, Active Directory, PAM tools | Captures user logon/logoff events, MFA prompts, failed authentication attempts, and password changes.  |
+
+### 🔍 Log Granularity & Verbose Logging
+
+Log verbosity dictates the depth of metadata recorded per event. Increasing verbosity aids forensic analysis but increases data volume:
+
+* **Standard Logging:** Contains basic contextual fields (Date, Time, Action, Author).
+  * *Example:* `Login Event [05:45:15] User1 Authenticated successfully`
+* **Verbose Logging:** Captures additional granular data, including precise sub-second timestamps, source source IP addresses, hostnames, and executable source code lines.
+  * *Example:* `Login Event [2022/11/16 05:45:15.892673] auth_performer.cc:470 User1 Authenticated successfully from device1 (192.168.1.2)`
+
+### ⚙️ Log Management Lifecycle & Operations
+
+Log management encompasses the collection, aggregation, storage, analysis, and disposal of log data.
+
+#### 1. Scope Selection & The Danger of Overlogging
+
+* **Selective Ingestion:** Ingest telemetry from sources most likely to yield actionable security insights.
+* **Privacy Controls:** Exclude or sanitize Personally Identifiable Information (PII) such as names, phone numbers, and email addresses to maintain regulatory compliance.
+* **Risks of Overlogging:**
+  * **Cost Escalation:** Expands storage infrastructure and SIEM licensing overhead.
+  * **System Performance Degradation:** High logging volume increases CPU and disk I/O load on host endpoints.
+  * **Search Inefficiency:** Increases data noise, hindering rapid query performance during live security triage.
+
+#### 2. Log Retention & Compliance Mandates
+
+Retention schedules are heavily dictated by industry-specific regulatory requirements:
+
+* **Public Sector:** Governed by standards such as FISMA.
+* **Healthcare:** Dictated by HIPAA guidelines for protecting electronic health information.
+* **Financial Services:** Bound by PCI DSS, GLBA, and SOX regulatory frameworks.
+
+#### 3. Log Integrity & Protection Controls
+
+Attacker tactics often include wiping or altering local system logs to erase traces of post-exploitation activity.
+
+* **Centralized Log Servers:** Implement dedicated, isolated log collector architectures to forward logs off host endpoints immediately upon creation.
+* **Integrity Barriers:** Offloading logs to centralized, append-only infrastructure prevents local host compromises from compromising historical log records.
+
+## 📁 Overview of Common Security Log File Formats
+
+* **Log Analysis:** The examination of recorded system and network events to reconstruct timelines, extract the 5 W's (*Who, What, When, Where, Why*), and detect malicious activity.
+* **Log Standardization:** Different operating systems, security tools, and applications emit logs in distinct formats. Analysts must understand these formats to parse, correlate, and investigate security alerts effectively.
+
+### 🗂️ Overview of Key Log Formats
+
+#### 1. JavaScript Object Notation (JSON)
+
+A lightweight, text-based data interchange format widely used in web technologies and cloud environments.
+
+* **Syntax Elements:**
+  * **Key-Value Pairs:** Linked data items separated by a colon (e.g., `"Alert": "Malware"`).
+  * **Commas:** Used to separate items in lists.
+  * **Double Quotes:** Enclose text strings (numbers are unquoted, e.g., `"Alert code": 1090`).
+  * **Curly Brackets (`{}`):** Enclose objects containing comma-separated key-value properties.
+  * **Square Brackets (`[]`):** Enclose ordered arrays (e.g., `["Administrators", "Users"]`).
+
+#### 2. Syslog
+
+A standard logging protocol, service, and native log format across Unix-like systems, used to transport and centralize logs (ports 514 for plaintext, 6514 for encrypted).
+
+* **Structure:** Consists of a **Priority (PRI)** field, **Header**, **Structured-Data**, and **Message**.
+* **Priority (`<PRI>`):** Enclosed in angle brackets (e.g., `<236>`); lower numerical values generally indicate higher urgency.
+* **Header:** Contains timestamp, hostname, application name, and message ID.
+* **Structured-Data:** Additional logging metadata enclosed in square brackets using key-value pairs (e.g., `[user@32473 iut="1"]`).
+
+#### 3. XML (eXtensible Markup Language)
+
+A markup language and native file format used extensively in Windows systems for event logging (e.g., Windows Event Logs).
+
+* **Tags:** Enclosed in angle brackets with paired start (`<tag>`) and end (`</tag>`) markers.
+* **Elements:** Includes tags, child elements, and nested data, all anchored by a root element (e.g., `<Event>`).
+* **Attributes:** Additional metadata embedded within a tag using single or double quotes (e.g., `<Data Name='SubjectUserName'>JSMITH</Data>`).
+
+#### 4. CSV (Comma Separated Value)
+
+A flat-file format where data values are separated strictly by commas.
+
+* **Characteristics:** Field position dictates its meaning, but field header names are frequently omitted from the log file itself. Analysts must understand the source device schema to interpret CSV logs accurately.
+* **Example:** `2009-11-24T21:27:09.534255,ALERT,192.168.2.7,1041,...`
+
+#### 5. CEF (Common Event Format)
+
+A standardized log format that uses pipe characters (`|`) to separate defined fields, combined with key-value pairs in its extension section. Often transported via Syslog.
+
+* **Syntax Order:** `CEF:Version|Device Vendor|Device Product|Device Version|Signature ID|Name|Severity|Extension`
+* **Extension Field:** Optional component containing customizable key-value metrics (e.g., `src=10.0.0.2 dst=2.1.2.2 spt=1232`).
+
+## 🛡️ Intrusion Detection System (IDS) Technologies & Detection Techniques
+
+* **Intrusion Detection System (IDS):** An application designed to monitor system and network activity, log events, and generate alerts when potential intrusions or malicious behaviors are detected.
+* **Deployment Scope:** IDS solutions are categorized based on their monitoring scope into **Host-based (HIDS)** and **Network-based (NIDS)** architectures. Deploying both provides a comprehensive, multi-layered defense posture.
+
+### 💻 HIDS vs. NIDS Architectures
+
+| IDS Type                           | Target Scope & Installation                                                  | Core Operational Capabilities                                                                                                                                      |
+| :--------------------------------- | :--------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Host-Based IDS (HIDS)**    | Installed directly as an agent on an individual endpoint (computer, server). | Monitors internal host activity, including file integrity, system resource consumption, user actions, local process execution, and inbound/outbound traffic flows. |
+| **Network-Based IDS (NIDS)** | Positioned strategically on network segments, switches, or routers.          | Captures and inspects raw network traffic and packet streams flowing between multiple devices across the enterprise network.                                       |
+
+### 🔍 Detection Techniques: Signature-Based vs. Anomaly-Based
+
+Detection systems rely on two primary analytical techniques to identify security events:
+
+#### 1. Signature-Based Analysis
+
+Compares observed activity against a database of known attack patterns (*signatures*), such as specific byte sequences, file hashes, or malicious IP addresses.
+
+* **Advantages:** Highly efficient at catching known threats with a **low rate of false positives**.
+* **Disadvantages:**
+  * **Evasion:** Attackers can easily modify minor code attributes to alter their file signature and bypass detection.
+  * **Maintenance Overhead:** Requires constant database updates to incorporate signatures for newly discovered exploits.
+  * **Zero-Day Blind Spot:** Completely ineffective against unknown threats, novel malware variants, and zero-day exploits.
+
+#### 2. Anomaly-Based Analysis
+
+Identifies malicious activity by measuring current system behavior against established behavioral baselines.
+
+* **Training Phase:** Collects normal operational telemetry to establish a baseline of expected behavior.
+* **Detection Phase:** Flags any deviation outside the established baseline as anomalous and triggers an alert.
+* **Advantages:** **Can detect unknown and evolving threats** that lack pre-existing signatures.
+* **Disadvantages:**
+  * **High False Positive Rate:** Legitimate, non-malicious user behavior or administrative changes frequently deviate from baselines, generating alert noise.
+  * **Training Compromise Vulnerability:** If an attacker is already present during the training phase, their malicious behavior is mistakenly incorporated into the "normal" baseline.
+
+## 🦅 Overview of Suricata IDS/IPS
+
+* **Suricata:** An open-source, high-performance network intrusion detection system (IDS), intrusion prevention system (IPS), and network security monitoring (NSM) engine.
+* **Core Operational Modes:**
+  * **Intrusion Detection System (IDS):** Operates primarily as a network-based (or host-based) sensor to monitor traffic flows and generate alerts upon detecting malicious signatures.
+  * **Intrusion Prevention System (IPS):** Actively blocks malicious traffic and unauthorized activities inline (requires specific IPS mode configuration).
+  * **Network Security Monitoring (NSM):** Generates robust telemetry, analyses live traffic or packet capture (PCAP) files, and stores conditional packet captures for forensic investigations and signature testing.
+
+### 📐 Suricata Rules and Signatures
+
+Suricata rules (often used interchangeably with *signatures*) define specific conditions, patterns, and behaviors to detect malicious network traffic.
+
+#### Rule Syntax Structure
+
+Suricata rules consist of three primary components:
+
+1. **Action:** Defines what happens when traffic matches the rule (e.g., `alert`, `pass`, `drop`, `reject`).
+2. **Header:** Dictates network parameters, including source/destination IP addresses, ports, protocol, and traffic direction.
+3. **Rule Options:** Customizable parameters defining specific message strings, matching criteria, and unique identifiers.
+
+#### Rule Evaluation Order & Conflicts
+
+* **Default Processing Order:** Unlike the linear order written in configuration files, Suricata evaluates rules by default in this sequence: **pass**, **drop**, **reject**, and **alert**.
+* **Verdict Impact:** Rule order dictates final packet verdicts when overlapping rules trigger contradictory outcomes (e.g., a `drop` rule vs. an `alert` rule).
+
+#### The Value of Custom Rules
+
+* **Environment Alignment:** Because IT infrastructures vary, pre-packaged rules rarely fit an organization's exact needs.
+* **False Positive Reduction:** Writing tailored rules minimizes noise and alert fatigue, ensuring security analysts focus on genuine threats.
+
+### ⚙️ Configuration & Log Output Files
+
+#### The Configuration File (`suricata.yaml`)
+
+* Suricata relies on **`suricata.yaml`**, a structured configuration file using the **YAML** format, to define operational settings, network variables, rule paths, and output modules.
+
+#### Suricata Log Generation
+
+When triggers occur, Suricata writes to two primary log formats:
+
+| Log File               | Format & Detail Level                                                                                              | Operational Use Case & Purpose                                                                        |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| **`eve.json`** | JSON-formatted, highly verbose telemetry. Includes unique identifiers like `flow_id` to correlate network flows. | Ideal for SIEM ingestion, log parsing, automated parsing, threat hunting, and deep incident analysis. |
+| **`fast.log`** | Minimalist text format containing basic alert metadata, IPs, and ports.                                            | Legacy format suitable only for basic logging; inadequate for modern forensic investigations.         |
+
+## 📥 Log Sources and Log Ingestion in SIEM
+
+Security Information and Event Management (SIEM) platforms rely on continuous telemetry to detect and investigate threats. The core SIEM processing lifecycle consists of three sequential steps:
+
+1. **Collect and Aggregate Data:** Gathering raw event data from disparate sources across the network architecture.
+2. **Normalize Data:** Converting heterogeneous log formats into a unified, standardized schema to streamline searching, querying, and correlation. *(Note: Normalization capabilities vary across SIEM products).*
+3. **Analyze Data:** Indexing and correlating normalized data to uncover common patterns, indicators of compromise (IoCs), and unusual activity.
+
+### 🔄 Log Ingestion Mechanics
+
+* **Definition:** Log ingestion is the automated process of collecting, importing, and copying event data from source systems into a centralized SIEM repository.
+* **Non-Destructive Copying:** The SIEM retains an independent copy of ingested logs for analysis and processing, leaving the original source logs untouched on host endpoints.
+* **Centralized Visibility:** Ingestion aggregates disparate telemetry—including authentication attempts, firewall drops, and system events—into a single pane of glass for security analysts.
+
+### 🚀 Log Forwarders & Automation
+
+Manual log uploads are inefficient and non-scalable given the thousands of devices operating in modern enterprise environments. Organizations rely on **log forwarders** to automate collection and transmission.
+
+* **Functionality:** Log forwarder software monitors local system log files, filters relevant events, and securely transmits them to a centralized logging receiver or SIEM platform.
+* **Deployment Options:**
+  * **Native Forwarders:** Built-in logging agents provided natively by certain operating systems.
+  * **Third-Party / Proprietary Forwarders:** External software installed on endpoints or specialized SIEM-native forwarding agents configured to target specific collection ports and destinations.
+
+
+## 🔍 SIEM Search Methodologies: Splunk SPL & Google SecOps (Chronicle)
+
+* **SIEM Search Efficiency:** Modern SOC analysts query vast volumes of ingested event logs to locate, isolate, and correlate security incidents.
+* **Search Paradigms:** SIEM architectures utilize platform-specific query syntax to filter indexed parameters, transform search outputs, and inspect raw or normalized logs.
+
+### ⚡ Splunk Search Processing Language (SPL)
+
+Splunk uses **Search Processing Language (SPL)** to retrieve events stored in specific logical indexes.
+
+#### Basic SPL Syntax & Components
+
+* **Index Query:** Specifies the target dataset index (e.g., `index=main`).
+* **Search Terms:** Key string terms evaluated across event records (e.g., `fail`).
+* **Wildcard Character (`*`):** Matches zero or more arbitrary characters to capture term variations (e.g., `fail*` returns *fail*, *failed*, and *failure*).
+* **Exact Phrase Matching (`""`):** Enclosing strings in double quotes ensures matching against the precise phrase (e.g., `"login failure"`).
+
+#### Command Chaining via Pipes (`|`)
+
+Piping sends the output of an initial search command as input into subsequent transforming commands to filter, aggregate, or format data:
+
+```spl
+index=main fail | chart count by host
+```
+
+* **Command 1 (`index=main fail`):** Retrieves all events from the `main` index containing the string `fail`.
+* **Pipe (`|`):** Connects the retrieved events to the transforming function.
+* **Command 2 (`chart count by host`):** Aggregates event counts grouped by the source host identifier (`host`), helping analysts rapidly pinpoint systems experiencing excessive failure rates.
+
+### 🌐 Google Security Operations (Chronicle) Search Capabilities
+
+Google SecOps supports two distinct query approaches for inspecting telemetry: **Unified Data Model (UDM) Search** and **Raw Log Search**.
+
+| Feature / Aspect            | Unified Data Model (UDM) Search                                                                          | Raw Log Search                                                                                          |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
+| **Data Source**       | Ingested, parsed, and normalized security data structured into standard UDM schemas.                     | Original, unparsed, raw log files.                                                                      |
+| **Execution Speed**   | Fast; searches structured, indexed fields.                                                               | Slower; scans unindexed raw text strings.                                                               |
+| **Common Use Case**   | Routine threat hunting, user authentication tracking, and standard alert validation.                     | Deep forensic analysis when parser rules fail or custom vendor fields are omitted during normalization. |
+| **Advanced Features** | Leverages Procedural Filtering and structured field keys (e.g., `metadata.event_type = "USER_LOGIN"`). | Supports Regular Expressions (RegEx) to match complex string patterns.                                  |
+
+### Core Unified Data Model (UDM) Field Structures
+
+* **Entities:** Provides context regarding involved nouns (e.g., origin hostnames, user accounts, target IP addresses).
+* **Event Metadata:** Captures fundamental event parameters, including standardized event types (`metadata.event_type`) and timestamps.
+* **Network Metadata:** Captures protocol specifications, directional traffic metrics, and network session attributes.
+* **Security Results:** Documents automated action verdicts reported by security controls (e.g., `virus detected and quarantined`).
