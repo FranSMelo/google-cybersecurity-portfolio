@@ -39,7 +39,7 @@ An operating system (OS) is  the core software that manages a computer's hardwar
 * **3. Operating System (OS):** Acts as the bridge behind the scenes (comparable to a restaurant kitchen preparing an order) by receiving, interpreting, and routing requests from applications to the appropriate hardware.
 * **4. Hardware:** The physical components (such as the CPU for calculations or the hard drive for file storage) that perform the heavy processing and return the output through the OS to the application.
 
-![Shows a process that moves from user to application to operating systems and finally to hardware.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bfvQyeg_SC-DSgUsegf8PQ_8405d4e94af147e1b98df5150c2fd7f1_CS_R-060_User-Application-Operating-System-Hardware.png?expiry=1791621933658&hmac=QZ8j_wkJ8tLCy4xNQtlw0vXu9Ces1W3jFbmd2LaotQo)
+![1792693689678](image/M4-Notes/1792693689678.png)
 
 ### 📥 Example: Downloading a File from an Internet Browser
 
@@ -754,7 +754,6 @@ Outer joins expand query results beyond exact matches by retaining all records f
   SELECT COUNT(firstname)
   FROM customers;
   ```
-
   * *Result:* Returns a single-row, single-column table containing the total row count.
 * **Combining with Filters (`WHERE`):** Aggregate functions can be combined with `WHERE` clauses to calculate metrics for specific subsets of data.
 
@@ -765,5 +764,4 @@ Outer joins expand query results beyond exact matches by retaining all records f
     FROM customers
     WHERE country = 'USA';
     ```
-
     * *Result:* Returns a count restricted only to customer records located in the USA.

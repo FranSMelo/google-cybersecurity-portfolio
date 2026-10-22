@@ -23,9 +23,7 @@
 * **Purpose:** Visual maps using representative graphics and connecting lines to portray network architecture and device placement.
 * **Analyst Benefit:** By studying network diagrams, security analysts can visualize network design, understand asset layouts, and refine strategies for securing network architectures.
 
-![v540rACBSUepbsQcE4s3PQ_3b799a13034d42938c980d7c473725f1_2SOA6jNuKUowAynp64ms-agTTUcxt1xas4SFTTAcKU-JfqJHyG2vzmM7qgqMh4J_Euwmri_t3G_CUXydGZRlmV4EZABYDusKE7pBnNWi5gZ_fUbiAetmRiQWL3cMO2iRWDtjtAPMazNxnmT-i5pWmPAe (1600×900)](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/v540rACBSUepbsQcE4s3PQ_3b799a13034d42938c980d7c473725f1_2SOA6jNuKUowAynp64ms-agTTUcxt1xas4SFTTAcKU-JfqJHyG2vzmM7qgqMh4J_Euwmri_t3G_CUXydGZRlmV4EZABYDusKE7pBnNWi5gZ_fUbiAetmRiQWL3cMO2iRWDtjtAPMazNxnmT-i5pWmPAe?expiry=1791368528935&hmac=cqjyxq7QkeOVdMAJOhptiyn0OWZnskTJ1lAuRDnCC1s)
-
-## ☁️ Cloud Computing, Hybrid Networks, and Software-Defined Networks
+☁️ Cloud Computing, Hybrid Networks, and Software-Defined Networks
 
 ### 🌐 Computing Processes and Cloud Service Models
 
@@ -36,7 +34,7 @@
   * **Infrastructure as a Service (IaaS):** Virtual computer components (virtual containers and storage) configured remotely to operate existing workloads without major modifications.
   * **Platform as a Service (PaaS):** Developer tools used to design and access custom applications for specific business needs.
 
-![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/oFV1OH67RJOjAed1pXzAuw_6b34b3019d4d448b9c662ebb39970df1_CS_R-042_iass-paas-and-saas.png?expiry=1791368830993&hmac=6elPM7CL9hptdhUZms_CSQVeWPVCRW2dh2Yg_EtI0sA)
+![1792693495951](image/M3-Notes/1792693495951.png)
 
 ### 🔀 Hybrid Cloud Environments and Software-Defined Networks
 
@@ -60,9 +58,9 @@
 
 ### 🏗️ The Four Layers of the TCP/IP Model
 
-![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H9jj1YSsSDKlU8c8qzOgsQ_89f77799b50040b08911a8de1012e2f1_CS_R-210_S33G011-edited.png?expiry=1791393813706&hmac=5BGP1DXvOmePZYOTFLtu90VKONlF66itxkwzu-jxx0I)
+![1792693550567](image/M3-Notes/1792693550567.png)
 
-#### 🔗 1. Network Access Layer
+🔗 1. Network Access Layer
 
 * **Function:** Deals with the creation of data packets and their transmission across a physical network, corresponding directly to physical hardware (hubs, modems, cables, and wiring).
 * **Key Protocol:** **Address Resolution Protocol (ARP)**, which maps IP addresses to MAC addresses for local network communication.
@@ -98,7 +96,7 @@
 * **Model Simplification:** The TCP/IP model is a simplified version that effectively combines multiple layers of the OSI model.
 * **Professional Communication:** Network professionals often use the OSI model to communicate about potential sources of problems or security threats when they occur.
 
-![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/RbNt47PDRTGJZ6q_QtaNMg_9b9098ac04e84c2d8ad04b220c5456f1_CS_R-210_TCP-vs-OSI.png?expiry=1791393813706&hmac=oNygaJxXLnlxn5EanWAadMoWru-fI_poNPJ9PG2vA9U)
+![1792693561200](image/M3-Notes/1792693561200.png)
 
 * **OSI Model Definition:** A standardized concept consisting of seven layers that describe how computers communicate and send data over a network.
 * **Working Direction:** The OSI model is typically analyzed in reverse order—from Layer 7 (application interaction) down to Layer 1 (physical hardware components).
@@ -161,7 +159,7 @@
   * **Source & Destination IP Addresses:** Identify sending and receiving devices.
   * **Options:** Allows additional security/routing options when HLEN exceeds five.
 
-![Diagram of an IPv4 packet header, 13 fields, and bit size](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ZlTJLULmT_-iQusFt5gHLA_34841ae20ac344f4a0248aebe8f0d6f1_CS_R-044_Edited_Pv4-packet-header-14-field.png?expiry=1791394756139&hmac=LspGe34qag0XZUouc_hG83REBu-cYxU6_AksyeW5pn4)
+![1792693571321](image/M3-Notes/1792693571321.png)
 
 ### 🔄 IPv4 versus IPv6 Comparison
 
@@ -172,7 +170,7 @@
 * **Header Differences:** IPv6 features a simpler header format, omitting fields like IHL, Identification, and Flags, while introducing a **Flow Label** field for special router handling.
 * **Security & Routing:** IPv6 provides more efficient routing and eliminates private address collisions common in IPv4.
 
-![Side by side diagrams of an IPv4 packet header and a simplified IPv6 packet](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/PNld6YkmQNWyhZjFFHvC-Q_eb474e5ee3b3416fbc06a639503342f1_CS_R-044_IPv4-and-IPv6.png?expiry=1791394756139&hmac=3DKoQcNQVpBwSQaHVkbqNg8g8nkKC1vaKMVSqIRyi7Q)
+![1792693578069](image/M3-Notes/1792693578069.png)
 
 ---
 
@@ -413,7 +411,7 @@
 * **Source & Destination Ports:** Show the specific ports utilized in the communications.
 * **Resolution Defaults:** By default, `tcpdump` attempts to resolve IP addresses to hostnames and maps port numbers to commonly associated services.
 
-![types of information presented in a tcpdump packet capture.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1791540432242&hmac=iS07Gbh4W8UaYl2TG5Yrj1usnq5sGYZ--rlLJw9cGAM)
+![1792693585827](image/M3-Notes/1792693585827.png)
 
 ---
 
@@ -544,8 +542,6 @@
 | **Intrusion Detection System (IDS)**                 | Detects and alerts administrators about possible intrusions, attacks, and malicious traffic.           | Only scans for known attacks or obvious anomalies; does not stop incoming traffic.                         |
 | **Intrusion Prevention System (IPS)**                | Monitors activity for intrusions/anomalies and actively takes action to stop them.                     | Inline appliance (failure breaks internet connection); potential false positives block legitimate traffic. |
 | **Security Information and Event Management (SIEM)** | Collects, aggregates, and analyzes log data across multiple network machines into a central dashboard. | Only reports on possible security issues; does not take direct action to stop or prevent events.           |
-
-![An image showing the differences between a firewall, IPS, and IDS.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/4ENRXSswQSOsOrKt9KyG6A_06fe04a8d10846ba811fe89a969642f1_CS_R-055_Firewall-IDS-and-IPS.png?expiry=1791549736389&hmac=nC33IFUJAsUY9oNSvBGp-Uj6SpZleQ3Skm_OOrb_cmY)
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 🛡️ The 8 CISSP Security Domains
 
-![j1FbNS82S1yYlxE-Igbeww_15365b8830a9459285e35f2c933705f1_1oSzH-WlqUZe0MTeQnysKIvtlhXgJLES9dw5McvmUZL-EwfcEQLEDVcXErzxOnVYOJlIqqAK1mafq5Oq9C3lniHKrVvbcChb4_eChT-nusF47qadYlvZV05YzW302o7kstvEsIOw48J8Op_AsTU793sNiXroLTeq8gCo5KrOZiNiIqp6f2P0PLfdfv-BBQ (1600×933)](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/j1FbNS82S1yYlxE-Igbeww_15365b8830a9459285e35f2c933705f1_1oSzH-WlqUZe0MTeQnysKIvtlhXgJLES9dw5McvmUZL-EwfcEQLEDVcXErzxOnVYOJlIqqAK1mafq5Oq9C3lniHKrVvbcChb4_eChT-nusF47qadYlvZV05YzW302o7kstvEsIOw48J8Op_AsTU793sNiXroLTeq8gCo5KrOZiNiIqp6f2P0PLfdfv-BBQ?expiry=1791019065984&hmac=Krj0FwTnfvtUpuETK9zbgO7FeyAngf2wG1fc3MTMuVk)
+![1792693415542](image/M2-Notes/1792693415542.png)
 
 **Source:** Google Cybersecurity Professional Certificate, Google/Coursera, course material. Image used for educational/reference purposes.
 

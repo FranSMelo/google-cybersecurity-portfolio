@@ -40,8 +40,6 @@ chmod o-w project\_k.txt
 ls \-la project\_k.txt
 ```
 
-![1791552635986](<https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/Francisco/OneDrive/Ambiente%20de%20Trabalho/google-cybersecurity-portfolio/04-Tools-of-the-Trade-Linux-SQL/image/Linux-commands/1791552635986.png>)
-
 **Explanation:** The permission string for `project_k.txt` successfully transitioned from `-rw-rw-rw-` to `-rw-rw-r--`, confirming the complete removal of write access for unauthorized external users.
 
 ## Change file permissions on a hidden file
@@ -57,8 +55,6 @@ chmod u-w,g-w+r .project\_x.txt
 ls \-la .project\_x.txt
 ```
 
-![1791552643942](image/Linux-commands/1791552643942.png)
-
 **Explanation:** The validation confirmed that write permissions were entirely removed from both the owner and the group, while read access was correctly established, ensuring secure, restricted data archiving.
 
 ## Change directory permissions
@@ -73,8 +69,6 @@ To remove execution permissions from the group, isolate the directory, and audit
 chmod g-x drafts
 ls \-ld drafts
 ```
-
-![1791552655394](image/Linux-commands/1791552655394.png)
 
 **Explanation:** By removing the execute (`x`) permission from the group (`g-x`), members of the group can no longer enter or list the contents of the `drafts` directory, enforcing a strict least-privilege boundary around sensitive research drafts.
 

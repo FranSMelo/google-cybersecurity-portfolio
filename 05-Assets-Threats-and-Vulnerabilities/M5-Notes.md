@@ -851,26 +851,6 @@ Threat actors deploy diverse malware strains depending on their objectives, rang
 
 Rootkits and multi-stage malware attacks often rely on specialized delivery components to evade detection and establish persistence:
 
-┌─────────────────────────────────┐
-│         Dropper Program      						│
-│  Disguised file containing      					│
-│  embedded malicious payload.    				│
-└─────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────┐
-│         Loader Program         						│
-│  Downloads external payload     					│
-│  from Command & Control (C2).   				│
-└─────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────┐
-│     Rootkit / Final Payload     					│
-│  Gains elevated privileges      					│
-│  and establishes persistence.   					│
-└─────────────────────────────────┘
-
 * **Dropper:** A single package containing malicious code wrapped inside a benign-looking file (such as a PDF or image). Executing the file unpacks and hides the payload on disk.
 * **Loader:** A lightweight program that establishes a connection to a remote Command-and-Control (C2) server to download and execute secondary malware payloads dynamically.
 

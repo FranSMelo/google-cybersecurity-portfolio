@@ -1,4 +1,3 @@
-```md
 # TCPDump Traffic Log — Line-by-Line Explanation
 
 This document explains each line of the provided `tcpdump` log, focusing only on what each part of the line means and what happened in that specific packet.
@@ -13,6 +12,8 @@ This document explains each line of the provided `tcpdump` log, focusing only on
 14:18:32.192571 IP your.machine.52444 > dns.google.domain: 35084+ A?
 yummyrecipesforme.com. (24)
 ```
+
+
 
 ### Explanation
 
