@@ -1,35 +1,56 @@
-# Course 8 content
+# 🎓 Course 8: Put It to Work
 
-Each course of this certificate program is broken into modules. You can complete courses at your own pace, but the module breakdowns are designed to help you finish the entire Google Cybersecurity Certificate in about six months.
+## 📌 Course Overview
 
-What’s to come? Here’s a quick overview of the skills you’ll learn in each module of this course.
+**Put It to Work** brings together concepts from the Google Cybersecurity Certificate and focuses on applying them in professional settings. The course covers protecting data, communicating and escalating incidents, working with stakeholders, engaging with the cybersecurity community, and using AI to support cybersecurity workflows.
 
-### **Module 1: Protect data and communicate incidents **
+This section of my portfolio contains study notes on data and asset classification, business continuity and disaster recovery, incident escalation, stakeholder communication, and visual reporting.
 
-![Six icons show the course followed by the five weeks sequentially from left to right with week 1 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/TvHsRlH7SE2rI1NvIRCtdQ_6bdddc1ad00046fa8eb1e9b47fb372f1_Prepare-R-172-1.png?expiry=1792759698943&hmac=vK4ZIonKLxYitYmaCc9K_pyGcHQm-lcq5cvi-XrIIdg)
+## 🎯 What I Learned
 
-You will recognize the importance of security professionals in the workplace. You'll discover how proper detection and escalation can impact an organization’s security posture.
+- **Protect data and assets:** Classify information and organizational assets according to sensitivity, value, and potential impact.
+- **Prepare for disruptions:** Understand the purpose of Business Continuity Plans (BCPs) and Disaster Recovery Plans (DRPs), including business impact analysis, recovery steps, team responsibilities, and training.
+- **Escalate incidents appropriately:** Recognize the importance of prioritization, timely escalation, evidence gathering, and following organizational protocols.
+- **Understand security roles:** Identify how analysts, incident response teams, data owners, and other governance roles contribute to incident handling.
+- **Communicate with stakeholders:** Tailor clear, concise security communications to technical teams, business leaders, and other audiences.
+- **Report incidents effectively:** Organize relevant information around key questions, impact, actions, and recommendations.
+- **Use visual communication:** Understand how dashboards and other visual summaries can make security information easier to interpret.
+- **Continue professional development:** Recognize the value of engaging with the cybersecurity community and keeping up with evolving practices and tools.
+- **Consider AI in cybersecurity workflows:** Explore how AI can support professional tasks while keeping human judgment and appropriate review central.
 
-### **Module 2: Escalate incidents**
+## 📚 Topics Covered
 
-![Six icons show the course followed by the five weeks sequentially from left to right with week 2 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/HF2Taod4RtqLlh39ajpUmw_6f4b0bff0e2f40758877fc039727eaf1_Prepare-R-172-2.png?expiry=1792759698943&hmac=J8YMne_-pb87_b432eQM-Ed6aVsJyzx43PwQMKNXMxE)
+### Data protection and resilience
 
-You will explore the importance of incident prioritization and escalation. You'll learn how the decisions security professionals make help to keep business operations safe.
+- Data and asset classification, including public, private, sensitive, and confidential information.
+- Applying security controls in proportion to an asset's sensitivity and business impact.
+- The distinct but complementary purposes of business continuity and disaster recovery.
+- Planning for recovery of critical systems, data, and business functions.
 
-### **Module 3: Communicate effectively to influence stakeholders**
+### Incident escalation and prioritization
 
-![Six icons show the course followed by the five weeks sequentially from left to right with week 3 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/SIKMsC30QGu5FhD9Wl2alA_b65204a016f04248be2b255e20d5a6f1_Prepare-R-172-3.png?expiry=1792759698943&hmac=UCnqqxENFhoyzAPtSs_jD0O7NoFKH51q2lrvGe8a6ds)
+- Recognizing security issues that require escalation and following established protocols.
+- Prioritizing incidents based on severity, potential impact, and asset criticality.
+- Understanding notification considerations when personally identifiable information (PII) may be involved.
+- Coordinating responsibilities among analysts, responders, and relevant organizational roles.
 
-You will learn about important stakeholders in cybersecurity. In addition, you'll create clear and concise communications to stakeholders.
+### Stakeholder communication
 
-### **Module 4: Engage with the cybersecurity community **
+- Identifying stakeholder groups and their communication needs.
+- Presenting incident information clearly, concisely, and with the appropriate level of technical detail.
+- Choosing suitable communication channels for the audience and urgency.
+- Using reports and visual dashboards to communicate trends, impact, and response status.
 
-![Six icons show the course followed by the five weeks sequentially from left to right with week 4 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/JUvzCwJ8QcOnwVmI2sclaw_d057f3c87cfc404db4dfe78d963b71f1_Prepare-R-172-4.png?expiry=1792759698943&hmac=yfQ0wMalIB9SWGspSV3nvcdj9Y5DEjWSebRTxHOFeQk)
+## 📄 Portfolio Deliverables
 
-You will learn how to stay up-to-date on the latest cybersecurity trends and explore how to engage with the security community.
+| Resource                   | Description                                                                                                                             |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| [Course Notes](M8-Notes.md) | Study notes on data protection, continuity and recovery planning, incident escalation, stakeholder communication, and visual reporting. |
 
-### **Module 5: Use AI to modify workflows**
+## 🗂️ Folder Contents
 
-![Six icons show the course followed by the five weeks sequentially from left to right with week 5 highlighted.](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/eVGwlqSjQ8SFMBiY9U4ZfQ_b16591d5494c406dae21117bb32d76f1_Prepare-R-172-5.png?expiry=1792759698943&hmac=X5IWsGVrW2885R-KdaBg6P54AI3j7T7mY_zhdGYKT_U)
-
-You'll learn AI skills you can use as a cybersecurity professional. This module also serves as the final wrap-up for the course and the entire Google Cybersecurity Certificate program.
+```text
+08-Put-It-To-Work/
+├── README.md
+└── M8-Notes.md
+```
